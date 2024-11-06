@@ -38,17 +38,94 @@ body{
     color: #fff;
 }
 
-.hero::before{
+.encuestasDisponibles{
+    width:100%;
+    height:100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position:relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #000;
+}
+
+.encuestasDisponibles::before{
     content: "";
-    position: absolute;
     top:0;
     left:0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size:cover;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    width: 100vw;
+    height: 100vh;
+    background-color: #fafafa;
+    color:#000;
     z-index:-1;
+}
+
+.card {
+    padding:10px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+}
+
+.card-text {
+    flex: 1;
+    margin-bottom: 1rem;
+    color: #6c757d;
+}
+
+.btn-card {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.btn-card:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color:white;
+}
+
+.col-xs-12 {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.col-md-4 {
+    width: 33.333%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .col-md-4 {
+        width: 100%;
+    }
 }
 
 .nav{
@@ -111,6 +188,11 @@ body{
     padding: 10px 32px;
     border-radius:32px;
     cursor:pointer;
+}
+
+.cta:hover{
+    background-color: #1D293F;
+    color:white;
 }
 
 /* About */

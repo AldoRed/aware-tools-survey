@@ -497,7 +497,7 @@ $formulario = [
     <header class="hero">
     <nav class="nav container">
         <div class="nav_logo">
-            <h2 class="nav_title">Aware Tools Survey</h2>
+            <h2 class="nav_title"><img src="views/img/logo.png" style="width:60px;" alt="Logo de Aware Tools"></h2>
         </div>
         
         <div class="nav_menu">
@@ -625,6 +625,19 @@ PNC.</p>
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 30px;
     }
+
+    .hero::before{
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(<?php echo $encuesta["imagen"] ?>);
+        background-size:cover;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+        z-index:-1;
+    }
     
 </style>
 
@@ -693,11 +706,13 @@ foreach($formulario as $keySeccion => $seccion){
         
         echo '</fieldset>';
     }
+
+    echo '</br></br>';
     // Botón de siguiente
     if($keySeccion < count($formulario)-1){
         echo '
         <p class="siguiente" siguiente="'.($keySeccion+1).'">
-            <button type="button">
+            <button type="button" class="btn">
                 Siguiente
             </button>
         <p>
@@ -705,19 +720,19 @@ foreach($formulario as $keySeccion => $seccion){
     }else{
         // Botón de enviar
         echo '
-        <button type="submit">
+        <button type="submit" class="btn">
             Enviar
         </button>';
     }
 
-    echo '</section>';
+    echo '</br></br></br></br></section>';
 }
 
 
 ?>
 </form>
 
-<section id="encuesta" style="display:none;">
+<section id="encuesa" style="display:none;">
     <div>
         
         
