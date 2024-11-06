@@ -5,7 +5,10 @@ $ruta = null;
 
 if(isset($_GET['ruta'])){
 	$rutas = explode("/", $_GET['ruta']);
+    $ruta = $rutas[0];
 }
+
+$url = Ruta::ctrRuta();
 
 // Encuestas actuales
 $encuestas = array();
@@ -26,7 +29,7 @@ $encuestas[1]["ruta"] = "ciberseguridad-en-la-industria-de-la-salud";
     <meta name="keywords" content="encuestas, investigación, ciberseguridad, cibermadurez, ciberseguridad, ciberseguridad">
     <meta name="author" content="AldoRed">
     <!-- ICON -->
-    <link rel="icon" href="views/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php $url ?>views/img/favicon.ico" type="image/x-icon">
     <!-- Meta tags -->
     <?php
 
@@ -48,7 +51,18 @@ $encuestas[1]["ruta"] = "ciberseguridad-en-la-industria-de-la-salud";
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="<?php $url ?>views/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php $url ?>views/css/plugins/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php $url ?>views/css/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?php $url ?>views/css/plugins/fontawesome/css/all.css">
+
+    <!-- JS -->
+    <!-- jQuery -->
+    <script src="<?php $url ?>views/js/plugins/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="<?php $url ?>views/js/plugins/bootstrap.min.js"></script>
 </head>
 <body>
     <?php  
@@ -81,6 +95,8 @@ $encuestas[1]["ruta"] = "ciberseguridad-en-la-industria-de-la-salud";
 	}else{
 		include "overall/index.php";
 	}
+
+    include "overall/footer.php";
 
 	?>
 </body>
