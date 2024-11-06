@@ -1,3 +1,4 @@
+// Preguntas frecuentes
 (function(){
     const titleQuestions = [...document.querySelectorAll('.questions__title')];
     console.log(titleQuestions)
@@ -25,9 +26,43 @@ function margenError(a,b){
     return Math.abs((a[0]-parseInt(b[0]))) + Math.abs((a[1]-parseInt(b[1]))) + Math.abs((a[2]-parseInt(b[2])));
 }
 
+// Encuesta
 $(".contestar_enc").click(function(){
     $("#main").slideUp();
     $("#encuesta").slideDown();
+    $(".seccion_0").slideDown();
+});
+
+$(".siguiente").click(function(){
+    const siguiente = $(this).attr("siguiente");
+    $(".seccion_"+(siguiente-1)).slideUp();
+    $(".seccion_"+siguiente).slideDown();
+    // Scroll to top
+    window.scrollTo(0, 0);
+});
+
+$(".alternativaInput").click(function(){
+    if($(this).attr("type") == "radio"){
+        // Uncheck the other inputs
+        $(this).parent().siblings().removeClass("seleccionado");
+        $(this).parent().siblings().find("i").removeClass("fa-check-square").addClass("fa-square");
+    }
+
+    // Find <i> element
+    const iElement = $(this).parent().find("i");
+    console.log(iElement);
+    
+
+    // Check if the input is checked
+    if($(this).prop("checked")){
+        // Add "seleccionado" class to the parent element
+        $(this).parent().addClass("seleccionado");
+        iElement.removeClass("fa-square").addClass("fa-check-square");
+    }else{
+        // Remove "seleccionado" class to the parent element
+        $(this).parent().removeClass("seleccionado");
+        iElement.removeClass("fa-check-square").addClass("fa-square");
+    }
 });
 
 $(".siguiente_1").click(function(){

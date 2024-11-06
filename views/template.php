@@ -12,8 +12,10 @@ $url = Ruta::ctrRuta();
 
 // Encuestas actuales
 $encuestas = array();
+$encuestas[0]["id"] = 1;
 $encuestas[0]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
 $encuestas[0]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
+$encuestas[1]["id"] = 2;
 $encuestas[1]["nombre"] = "Ciberseguridad en la Industria de la Salud";
 $encuestas[1]["ruta"] = "ciberseguridad-en-la-industria-de-la-salud";
 
