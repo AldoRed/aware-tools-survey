@@ -87,8 +87,11 @@ $encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
 		$valor = $rutas[0];
 		$ruta = $rutas[0];
 
+        if($ruta == "inicio"){
+            include "overall/index.php";
+        }
         // Si $ruta está incluida en la lista de $encuestas[$i]["ruta"] include "overall/encuesta.php"
-        if(isset($encuestas) && !empty($encuestas)){
+        elseif(isset($encuestas) && !empty($encuestas)){
             foreach ($encuestas as $key => $value) {
                 if($ruta == $value['ruta']){
                     include "overall/encuesta.php";
