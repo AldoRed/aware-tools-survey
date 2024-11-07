@@ -59,7 +59,7 @@ $encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="<?php $url ?>views/css/styles.css">
+    <link rel="stylesheet" href="<?php $url ?>views/css/styles.css?v=2.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php $url ?>views/css/plugins/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -110,5 +110,8 @@ $encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
     include "overall/footer.php";
 
 	?>
+
+<script src="views/js/encuestas.js?v=1.0"></script>
+
 </body>
 </html>

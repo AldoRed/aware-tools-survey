@@ -268,5 +268,3 @@ foreach($formulario as $keySeccion => $seccion){
 </form>
 
 </center>
-
-<script src="views/js/encuestas.js"></script>
