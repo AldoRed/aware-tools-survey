@@ -808,7 +808,7 @@ PNC.</p>
 
             <section class="questions__offer" style="margin-bottom:10px;">
                 <h2 class="subtitle">¿Estas listo para realizar encuesta?</h2>
-                <a href="#" class="cta contestar_enc">Contestar encuesta</a>
+                <a class="cta contestar_enc">Contestar encuesta</a>
             </section>
             
             <br><br><br>

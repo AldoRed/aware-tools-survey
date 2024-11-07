@@ -121,8 +121,8 @@ input{
 }
 
 .btn-card:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #348ce9;
+    border-color: #348ce9;
     color:white;
 }
 
@@ -206,7 +206,7 @@ input{
 }
 
 .cta:hover{
-    background-color: #1D293F;
+    background-color: #348ce9;
     color:white;
 }
 
@@ -835,7 +835,17 @@ left: 0;
     }
 
     .questions__title{
-        font-size: 1rem;
+        font-size: 2rem;
+    }
+
+    
+    .questions__title i{
+        
+        margin-top: 10px;
+        margin-left: 4px;
+
+        width: 30px;
+        height: 30px;
     }
 
     .footer__title{
