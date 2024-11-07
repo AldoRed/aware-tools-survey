@@ -9,7 +9,7 @@ $preguntas = array(["¿Los datos donde quedan registrados?", "Los registros se a
                                      ["¿Quiénes somos?", "Somos un grupo de cuatro estudiantes de la Universidad Adolfo Ibañez de Viña del Mar. <b><br> Matthias Dietert.<br> Diego Figueroa.<br> Matias Orozco.<br> Aldo Muñoz.</b>"]);
 include "views/overall/encuesta/formularios/centroConCapacidades.php";
 include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
-include "views/overall/encuesta/formularios/usoDeFondos.php";
+// include "views/overall/encuesta/formularios/usoDeFondos.php";
 
 
 $formulario = $formulario[$encuesta["id"]];

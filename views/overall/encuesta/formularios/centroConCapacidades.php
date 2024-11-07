@@ -1,6 +1,6 @@
 <?php
 
-$formulario["1"] =
+$formulario["2"] =
 [
     [
         "seccion" => "SECCIÓN A: Preguntas relativas a la investigación realizada por los equipos de investigación en ciberseguridad",

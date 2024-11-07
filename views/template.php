@@ -13,17 +13,14 @@ $url = Ruta::ctrRuta();
 // Encuestas actuales
 $encuestas = array();
 $encuestas[0]["id"] = 1;
-$encuestas[0]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
-$encuestas[0]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
-$encuestas[0]["imagen"] = "views/img/encuestas/encuesta1.webp";
+$encuestas[0]["nombre"] = "Demanda de Capacidades I+D en Ciberseguridad de parte de los sectores Información General";
+$encuestas[0]["ruta"] = "demanda-de-capacidades-i-d-en-ciberseguridad-de-parte-de-los-sectores-informacion-general";
+$encuestas[0]["imagen"] = "views/img/encuestas/encuesta2.webp";
 $encuestas[1]["id"] = 2;
-$encuestas[1]["nombre"] = "Demanda de Capacidades I+D en Ciberseguridad de parte de los sectores Información General";
-$encuestas[1]["ruta"] = "demanda-de-capacidades-i-d-en-ciberseguridad-de-parte-de-los-sectores-informacion-general";
-$encuestas[1]["imagen"] = "views/img/encuestas/encuesta2.webp";
-$encuestas[2]["id"] = 3;
-$encuestas[2]["nombre"] = "Uso de Fondos de Investigación Aplicada";
-$encuestas[2]["ruta"] = "uso-de-fondos-de-investigacion-aplicada";
-$encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
+$encuestas[1]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
+$encuestas[1]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
+$encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
+
 
 ?>
 
