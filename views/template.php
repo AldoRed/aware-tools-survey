@@ -89,6 +89,8 @@ $encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
 
         if($ruta == "inicio"){
             include "overall/index.php";
+        }elseif(!isset($_SESSION["consentimiento"]) || $_SESSION["consentimiento"] == false || $ruta == "acuerdo"){
+            include "overall/encuesta/acuerdo.php";
         }
         // Si $ruta está incluida en la lista de $encuestas[$i]["ruta"] include "overall/encuesta.php"
         elseif(isset($encuestas) && !empty($encuestas)){
@@ -112,6 +114,7 @@ $encuestas[2]["imagen"] = "views/img/encuestas/encuesta3.webp";
 	?>
 
 <script src="views/js/encuestas.js?v=1.0"></script>
+<script src="views/js/consentimiento.js?v=1.0"></script>
 
 </body>
 </html>
