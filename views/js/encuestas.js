@@ -31,11 +31,13 @@ $(".contestar_enc").click(function(){
     $("#main").slideUp();
     $("#encuesta").slideDown();
     $(".seccion_0").slideDown();
+    // Scroll to top
+    window.scrollTo(0, 0);
 });
 
 $(".siguiente").click(function(){
     const siguiente = $(this).attr("siguiente");
-    $(".seccion_"+(siguiente-1)).slideUp();
+    $(".seccion_"+(siguiente-1)).hide();
     $(".seccion_"+siguiente).slideDown();
     // Scroll to top
     window.scrollTo(0, 0);
