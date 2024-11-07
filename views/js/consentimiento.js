@@ -1,5 +1,5 @@
 function aceptarConsentimiento() {
-    window.location.href = "encuesta/aceptar";
+    window.location.href = "acuerdo/aceptar";
 }
 
 function rechazarConsentimiento() {

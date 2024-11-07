@@ -1,8 +1,13 @@
 <?php
 
 if(isset($rutas[1]) && $rutas[1] == "aceptar"){
-    $_SESSION["consentimiento"] = false;
-    echo '<script>window.location = "inicio";</script>';
+    $_SESSION["consentimiento"] = true;
+    echo '<script>
+    // Get url
+    let url = window.location.href;
+    url = url.split("/acuerdo");
+    window.location.href = url[0] + "/inicio";
+    </script>';
 }
 
 ?>
