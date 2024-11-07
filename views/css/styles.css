@@ -18,6 +18,20 @@ body{
     color:black;
 }
 
+input{
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+}
+
 .noDisplay{
 	display:none;
 }
@@ -81,7 +95,8 @@ body{
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+    height: 40px;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #6c757d;

@@ -3,13 +3,12 @@
 $encuesta = $encuestas[$key];
 
 // Temporalmente se agrega manualmente el array de preguntas frecuentes
-$preguntas = array();
-$preguntas["preguntasFrecuentes"] = array(["¿Los datos donde quedan registrados?", "Los registros se almacenan en un archivo csv, el cual puedes descargar <a href='views/docs/resultadosColores.csv'>Aquí</a>"],
+$preguntas = array(["¿Los datos donde quedan registrados?", "Los registros se almacenan en un archivo csv, el cual puedes descargar <a href='views/docs/resultadosColores.csv'>Aquí</a>"],
                                         ["¿Qué datos serán requeridos?", "Edad, enfermedades que afecten a su visión y sexo"],
                                      ["¿Existe algún requisito para contestar la encuesta?", "No hay requisitos para contestar encuesta."],
                                      ["¿Quiénes somos?", "Somos un grupo de cuatro estudiantes de la Universidad Adolfo Ibañez de Viña del Mar. <b><br> Matthias Dietert.<br> Diego Figueroa.<br> Matias Orozco.<br> Aldo Muñoz.</b>"]);
-
-$formulario = [
+$formulario["1"] =
+[
     [
         "seccion" => "SECCIÓN A: Preguntas relativas a la investigación realizada por los equipos de investigación en ciberseguridad",
         "preguntas" => [
@@ -406,6 +405,272 @@ $formulario = [
     ]
 ];
 
+$formulario["2"] = 
+[
+    [
+        "seccion" => "Información General",
+        "preguntas" => [
+            [
+                "pregunta" => "Nombre de la Institución/Empresa *",
+                "tipo" => "text",
+                "alternativas" => [],
+                "obligatorio" => true
+            ],
+            [
+                "pregunta" => "Tipo de Institución/Empresa *",
+                "tipo" => "radio",
+                "alternativas" => [
+                    "Pública",
+                    "Startup",
+                    "Empresa Privada"
+                ],
+                "obligatorio" => true
+            ],
+            [
+                "pregunta" => "Sector de Actividad *",
+                "tipo" => "radio",
+                "alternativas" => [
+                    "Administración Pública",
+                    "Tecnología",
+                    "Salud",
+                    "Finanzas",
+                    "Educación",
+                    "Minería",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => true
+            ]
+        ]
+    ],
+    [
+        "seccion" => "Necesidades en Ciberseguridad",
+        "preguntas" => [
+            [
+                "pregunta" => "Principales desafíos de ciberseguridad que enfrenta su institución/empresa actualmente:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Protección de datos",
+                    "Prevención de ataques cibernéticos",
+                    "Gestión de identidades y accesos",
+                    "Seguridad en la nube",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Soluciones de ciberseguridad implementadas por su institución/empresa:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Firewalls",
+                    "Sistemas de detección de intrusiones",
+                    "Autenticación multifactor",
+                    "Cifrado de datos",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Necesidades de ciberseguridad no resueltas por las soluciones actuales disponibles en el mercado:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Falta de personal capacitado",
+                    "Herramientas insuficientes para la detección de amenazas avanzadas",
+                    "Integración de soluciones de ciberseguridad con sistemas existentes",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ]
+        ]
+    ],
+    [
+        "seccion" => "Capacidades de Investigación Necesarias",
+        "preguntas" => [
+            [
+                "pregunta" => "Áreas de investigación en ciberseguridad que considera prioritarias para su institución/empresa:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Inteligencia artificial aplicada a la ciberseguridad",
+                    "Criptografía avanzada",
+                    "Seguridad en dispositivos IoT",
+                    "Respuesta a incidentes y recuperación",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Capacidades de investigación que su institución/empresa considera necesarias para abordar los desafíos de ciberseguridad:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de nuevas tecnologías de detección de amenazas",
+                    "Investigación en criptografía y técnicas de cifrado",
+                    "Estudios sobre la seguridad en la nube y la protección de datos",
+                    "Investigación en seguridad de dispositivos móviles y IoT",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "En qué áreas específicas debería enfocarse la investigación aplicada para resolver problemas importantes de ciberseguridad:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de soluciones para la protección de infraestructuras críticas",
+                    "Innovación en métodos de autenticación y gestión de identidades",
+                    "Creación de herramientas avanzadas para la detección y mitigación de ataques",
+                    "Investigación en privacidad y protección de datos personales",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Dada las nuevas regulaciones de IA en Chile, ¿en qué deberían estar investigando los investigadores chilenos para desarrollar tecnología que permita:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Detección de sistemas de IA operando con niveles de riesgo (inaceptable, alto, limitado, sin riesgo evidente)",
+                    "Herramientas que auditen riesgos de regulación para recomendar normativas de autorregulación",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué capacidades de investigación considera necesarias en Chile para cumplir con las nuevas regulaciones de IA?",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Evaluación y mitigación de riesgos de IA",
+                    "Desarrollo de sistemas de IA seguros y éticos",
+                    "Implementación de procesos de auditoría y cumplimiento",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿En qué deberían investigar los investigadores chilenos en privacidad de datos para aumentar la Protección de Datos Personales acorde a la ley?",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de contratos inteligentes para la gestión de datos personales",
+                    "Implementación de tecnologías avanzadas de cifrado y anonimización",
+                    "Creación de sistemas de gestión de consentimiento y derechos de los titulares de datos",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué impacto tienen las regulaciones de interoperabilidad en lo que deberían investigar y los servicios de I+D que debieran ofrecer los centros de investigación en ciberseguridad en Chile para ayudar, por ejemplo, a la salud a cumplir con estas regulaciones?",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de estándares y protocolos de interoperabilidad seguros",
+                    "Investigación en integración segura de sistemas y datos en el sector salud",
+                    "Creación de herramientas para la interoperabilidad de dispositivos médicos y sistemas de salud",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Cómo deberían abordarse las vulnerabilidades propias de la IA cuando se aplica en salud, en vehículos autónomos en la minería, y en el sistema judicial?",
+                "tipo" => "radio",
+                "alternativas" => [
+                    "Desarrollo de técnicas de detección y mitigación de vulnerabilidades en sistemas de IA",
+                    "Investigación en seguridad y privacidad de datos en aplicaciones de IA en salud",
+                    "Creación de marcos de seguridad para la implementación de IA en vehículos autónomos y sistemas judiciales",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué impacto tiene la Ley Fintech en su institución/empresa?",
+                "tipo" => "radio",
+                "alternativas" => [
+                    "Cumplimiento con los requisitos de inscripción y autorización de servicios financieros",
+                    "Implementación de normas de gobernanza corporativa y gestión de riesgos",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué capacidades de ciberseguridad con base científico-tecnológica son necesarias para permitir que miles de participantes del sistema de finanzas abiertas operen con la Ley Fintech de manera segura?",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de plataformas fintech seguras y conformes",
+                    "Implementación de sistemas de gestión de riesgos y cumplimiento normativo",
+                    "Creación de tecnologías para la protección de datos y transacciones en finanzas abiertas",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué capacidades de investigación son necesarias para combatir deepfakes y estafas usando IA generativa?",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Desarrollo de herramientas avanzadas de detección de deepfakes",
+                    "Creación de sistemas de verificación de autenticidad de medios digitales",
+                    "Investigación en técnicas de análisis de patrones y contextos para identificar contenido generado por IA",
+                    "Implementación de tecnologías de rastreo y autenticación de origen de datos",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Comentarios adicionales: Por favor, añada cualquier comentario adicional o información relevante sobre las necesidades de ciberseguridad de su institución/empresa.",
+                "tipo" => "text",
+                "alternativas" => [],
+                "obligatorio" => false
+            ]
+        ]
+    ]
+];
+
+$formulario["3"] = 
+[
+    [
+        "seccion" => "Uso de Fondos de Investigación Aplicada",
+        "preguntas" => [
+            [
+                "pregunta" => "En qué áreas específicas considera que se deberían invertir los fondos de investigación aplicada para resolver temas importantes en ciberseguridad:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Capacitación y formación de personal especializado en ciberseguridad",
+                    "Desarrollo de tecnologías avanzadas para la detección y respuesta a incidentes",
+                    "Investigación en nuevas técnicas de criptografía y seguridad de datos",
+                    "Implementación de soluciones de ciberseguridad en entornos reales",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué tipo de apoyo o recursos necesitaría su institución/empresa para mejorar su postura de ciberseguridad?:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Financiamiento para proyectos de investigación",
+                    "Capacitación y formación de personal",
+                    "Acceso a tecnologías avanzadas",
+                    "Colaboración con expertos en ciberseguridad",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "¿Qué barreras ha encontrado su institución/empresa para implementar soluciones de ciberseguridad efectivas?:",
+                "tipo" => "radioMultiple",
+                "alternativas" => [
+                    "Costos elevados",
+                    "Falta de conocimiento especializado",
+                    "Resistencia al cambio",
+                    "Falta de apoyo institucional",
+                    "Otro (especificar)"
+                ],
+                "obligatorio" => false
+            ],
+            [
+                "pregunta" => "Comentarios adicionales: Por favor, añada cualquier comentario adicional o información relevante sobre las necesidades de ciberseguridad de su institución/empresa.",
+                "tipo" => "text",
+                "alternativas" => [],
+                "obligatorio" => false
+            ]
+        ]
+    ]
+];
+
+$formulario = $formulario[$encuesta["id"]];
+
 ?>
 
 <center>
@@ -450,39 +715,7 @@ $formulario = [
             
             echo '
             <section class="questions__offer" style="margin-bottom:10px;">
-                <h2 class="subtitle">Tus resultados</h2>
-                
-                <p class="questions__copy">-El primero es de prueba por lo que no está considerado en las estadisticas<br>-El margen de error se encuentra entre <br><b>0 <= Margen Error <= 765</b><br>mientras más cercano al 0 menor margen de error</p>
-                <h2 class="subtitle">Estadisticas:</h2>
-                <p class="questions__copy">-Mejor tiempo: <b>'.($mejor_tiempo/1000).' Segundos</b><br>-Menor margen de error: <b>'.$menor_error.'</b><br>-Media tiempo de respuesta: <b>'.($promedio_tiempo/1000).' Segundos</b><br>-Media margen de error: <b>'.$promedio_error.'</b><br></p>
-                
-                <h2 class="subtitle">1.</h2>
-                <span id="pr2" style="display:inline-block; width:200px;height:200px; background:rgb(71,253,213); margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[4].'</b><br>Tiempo de Respuesta: <b>'.($resultados[3]/1000).' Segundos</b></p>
-                
-                <h2 class="subtitle">2.</h2>
-                <span id="pr3" style="display:inline-block; width:200px;height:200px; background:#CF3476; margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[6].'</b><br>Tiempo de Respuesta: <b>'.($resultados[5]/1000).' Segundos</b></p>
-                
-                <h2 class="subtitle">3.</h2>
-                <span id="pr4" style="display:inline-block; width:200px;height:200px; background:#308446; margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[8].'</b><br>Tiempo de Respuesta: <b>'.($resultados[7]/1000).' Segundos</b></p>
-                
-                <h2 class="subtitle">4.</h2>
-                <span id="pr5" style="display:inline-block; width:200px;height:200px; background:#C51D34; margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[10].'</b><br>Tiempo de Respuesta: <b>'.($resultados[9]/1000).' Segundos</b></p>
-                
-                <h2 class="subtitle">5.</h2>
-                <span id="pr6" style="display:inline-block; width:200px;height:200px; background:#3E5F8A; margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[12].'</b><br>Tiempo de Respuesta: <b>'.($resultados[11]/1000).' Segundos</b></p>
-                
-                <h2 class="subtitle">6.</h2>
-                <span id="pr7" style="display:inline-block; width:200px;height:200px; background:#F8F32B; margin-bottom:5px;">&nbsp;</span>
-                <p class="questions__copy">Margen de Error: <b>'.$resultados[14].'</b><br>Tiempo de Respuesta: <b>'.($resultados[13]/1000).' Segundos</b></p>
-                
-                <p class="questions__copy"></p>
-                
-                <a href="https://aldored.com/proyecto"><h2 class="subtitle">Volver página principal</h2></a>
+                <a href="'.$url.'"><h2 class="subtitle">Volver página principal</h2></a>
             </section>
             ';
         
@@ -550,54 +783,27 @@ PNC.</p>
             <p class="questions__paragraph">Algunas preguntas y respuestas que quizas te puedas haber hecho.</p>
 
             <section class="questions__container">
-                <article class="questions__padding">
-                    <div class="questions__answer">
-                        <h3 class="questions__title">¿Los datos donde quedan registrados?
-                            <span class="questions__arrow">
-                                <i class="fas fa-arrow-down questions__img" aria-hidden="true"></i>
-                            </span>
-                        </h3>
 
-                        <p class="questions__show">Los registros se almacenan en un archivo csv, el cual puedes descargar <a href="views/docs/resultadosColores.csv">Aquí</a></p>
-                    </div>
-                </article>
-                
-                <article class="questions__padding">
-                    <div class="questions__answer">
-                        <h3 class="questions__title">¿Qué datos serán requeridos?
-                            <span class="questions__arrow">
-                                <i class="fas fa-arrow-down questions__img" aria-hidden="true"></i>
-                            </span>
-                        </h3>
+                <?php
 
-                        <p class="questions__show">Edad, enfermedades que afecten a su visión y sexo</p>
-                    </div>
-                </article>
-                
-                <article class="questions__padding">
-                    <div class="questions__answer">
-                        <h3 class="questions__title">¿Existe algún requisito para contestar la encuesta?
-                            <span class="questions__arrow">
-                                <i class="fas fa-arrow-down questions__img" aria-hidden="true"></i>
-                            </span>
-                        </h3>
+                foreach($preguntas as $key => $pregunta){
+                    echo '
+                    <article class="questions__padding">
+                        <div class="questions__answer">
+                            <h3 class="questions__title">'.$pregunta[0].'
+                                <span class="questions__arrow">
+                                    <i class="fas fa-arrow-down questions__img" aria-hidden="true"></i>
+                                </span> 
+                            </h3>
 
-                        <p class="questions__show">No hay requisitos para contestar encuesta.</p>
-                    </div>
-                </article>
-                
-                <article class="questions__padding">
-                    <div class="questions__answer">
-                        <h3 class="questions__title">¿Quiénes somos?
-                            <span class="questions__arrow">
-                                <i class="fas fa-arrow-down questions__img" aria-hidden="true"></i>
-                            </span>
-                        </h3>
+                            <p class="questions__show">'.$pregunta[1].'</p>
+                        </div>
+                    </article>
+                    ';
+                }
 
-                        <p class="questions__show">Somos un grupo de cuatro estudiantes de la Universidad Adolfo Ibañez de Viña del Mar. <b><br> Matthias Dietert.<br> Diego Figueroa.<br> Matias Orozco.<br> Aldo Muñoz.</b></p>
-                    </div>
-                </article>
-                
+                ?>
+
             </section>
 
             <section class="questions__offer" style="margin-bottom:10px;">
@@ -611,20 +817,6 @@ PNC.</p>
     
 </div>
 <style>
-    input{
-            background: rgba(255,255,255,0.1);
-    border: none;
-    font-size: 16px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
-    width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 30px;
-    }
 
     .hero::before{
         content: "";
@@ -657,7 +849,7 @@ foreach($formulario as $keySeccion => $seccion){
         
         echo '
         <fieldset class="container" style="text-align:left;">
-            <h3>'.$pregunta["pregunta"].'</h3>
+            <h3>'.($keyPregunta+1) .'. '. $pregunta["pregunta"].'</h3>
         ';
 
         if($pregunta["tipo"] == "radio"){
@@ -666,14 +858,14 @@ foreach($formulario as $keySeccion => $seccion){
                 
                 echo '
                     <div class="radio">
-                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer;" name="pregunta_'.$keyPregunta.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="radio">
+                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="radio">
                         <label for="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" class="radio-label"><i class="fas fa-square"></i> '.$alternativa.'</label>
                     </div>
                 ';
                 if($alternativa === "Otro (especificar)"){
                     echo '
                     <div class="otro-container">
-                        <input type="text" name="pregunta_'.$keySeccion.'_especificar" placeholder="Especificar" class="otroEspecificar">
+                        <input style="margin-left:19px;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
                     </div>
                     ';
                 }
@@ -684,14 +876,14 @@ foreach($formulario as $keySeccion => $seccion){
             foreach($pregunta["alternativas"] as $key => $alternativa){
                 echo '
                     <div class="radio">
-                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta_'.$keyPregunta.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox">
+                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox">
                         <label for="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" class="radio-label"><i class="fas fa-square"></i> '.$alternativa.'</label>
                     </div>
                 ';
                 if($alternativa === "Otro (especificar)"){
                     echo '
                     <div class="otro-container">
-                        <input type="text" name="pregunta_'.$keySeccion.'_especificar" placeholder="Especificar" class="otroEspecificar">
+                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
                     </div>
                     ';
                 }
@@ -699,7 +891,7 @@ foreach($formulario as $keySeccion => $seccion){
 
         }elseif($pregunta["tipo"] == "text"){
 
-            echo '<input type="text" name="pregunta_'.$keyPregunta.'">';
+            echo '<input type="text" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Escribir respuesta aquí">';
         }else{
             echo "Tipo de pregunta no soportada";
         }
@@ -731,170 +923,6 @@ foreach($formulario as $keySeccion => $seccion){
 
 ?>
 </form>
-
-<section id="encuesa" style="display:none;">
-    <div>
-        
-        
-        <h3 class="texto_e">¿Las mujeres son mejores diferenciando colores que los hombres?</h3>
-        
-        
-        <form role="form" method="post" name="encuesta_form">
-        
-        <fieldset class="container pregunta_1" style="text-align:left;">
-            
-            <h3>Información básica</h3>
-            
-            <div class="col-xs-12 col-sm-4">
-                <label for="edad">Edad:</label>
-                <input type="number" id="edad_e" name="edad">
-            </div>
-            
-            <div>
-                
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <label>Sexo:</label>
-              <div class="radio">
-                <input id="radio-1" name="gen" value="M" type="radio" checked>
-                <label for="radio-1" class="radio-label">Masculino</label>
-              </div>
-            
-              <div class="radio">
-                <input id="radio-2" name="gen" value="F" type="radio">
-                <label  for="radio-2" class="radio-label">Femenino</label>
-              </div>
-            </div>
-            
-            <div class="col-xs-12 col-sm-3">
-              <label>¿Sufres daltonismo o similares?:</label>
-              <div class="radio">
-                <input id="enf-si" name="enf" value="1" type="radio">
-                <label for="enf-si" class="radio-label">SI</label>
-              </div>
-            
-              <div class="radio">
-                <input id="enf-no" name="enf" value="0" type="radio" checked>
-                <label  for="enf-no" class="radio-label">NO</label>
-              </div>
-            </div>
-            
-            <p class="siguiente_1">
-                <button style="margin-top:5px;" type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_2 noDisplay">
-            <h3>1.</h3>
-            <span id="pr2" style="display:inline-block; width:200px;height:200px; background:rgb(71,253,213); margin-bottom:5px;">&nbsp;</span>
-            <span id="pr2_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e2" data-jscolor="{previewElement:'#pr2_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_3 noDisplay">
-                <button type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_3 noDisplay">
-            <h3>2.</h3>
-            <h3 class="cron_3">01:00</h3>
-            <span id="pr3" style="display:inline-block; width:200px;height:200px; background:#CF3476; margin-bottom:5px;">&nbsp;</span>
-            <span id="pr3_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e3" data-jscolor="{previewElement:'#pr3_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_4 noDisplay">
-                <button type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_4 noDisplay">
-            <h3>3.</h3>
-            <h3 class="cron_4">01:00</h3>
-            <span id="pr4" style="display:inline-block; width:200px;height:200px; background:#308446; margin-bottom:5px;">&nbsp;</span>
-            <span id="pr4_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e4" data-jscolor="{previewElement:'#pr4_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_5 noDisplay">
-                <button type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_5 noDisplay">
-            <h3>4.</h3>
-            <h3 class="cron_5">01:00</h3>
-            <span id="pr5" style="display:inline-block; width:200px;height:200px; background:#C51D34; margin-bottom:5px;">&nbsp;</span>
-            <span id="pr5_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e5" data-jscolor="{previewElement:'#pr5_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_6 noDisplay">
-                <button type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_6 noDisplay">
-            <h3>5.</h3>
-            <h3 class="cron_6">01:00</h3>
-            <span id="pr6" style="display:inline-block; width:200px;height:200px; background:#3E5F8A; margin-bottom:5px;">&nbsp;</span>
-            <span id="pr6_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e6" data-jscolor="{previewElement:'#pr6_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_7 noDisplay">
-                <button type="button">
-                    Siguiente
-                </button>
-            <p>
-        </fieldset>
-        
-        <fieldset class=" pregunta_7 noDisplay">
-            <h3>6.</h3>
-            <h3 class="cron_7">01:00</h3>
-            <span id="pr7" style="display:inline-block; width:200px;height:200px; background:#F8F32B; margin-bottom:5px;">&nbsp;</span>
-            <span id="pr7_r" style="display:inline-block; width:200px;height:200px; margin-bottom:5px;">&nbsp;</span>
-            <p>
-                <button class="pick_e7" data-jscolor="{previewElement:'#pr7_r'}">
-                    Pick color
-                </button>
-            <p>
-            <p class="siguiente_8 noDisplay">
-                <button type="submit">
-                    Terminar
-                </button>
-            <p>
-                
-            <input id="i" name="i" type="text" hidden>
-            <input id="r" name="r" type="text" hidden>
-        </fieldset>
-        
-        </form>
-        
-        
-    </div>
-</section>
 
 </center>
 
