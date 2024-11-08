@@ -68,6 +68,8 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
     <script src="<?php $url ?>views/js/plugins/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="<?php $url ?>views/js/plugins/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="<?php $url ?>views/js/plugins/sweetalert.min.js"></script>
 </head>
 <body>
     <?php  
