@@ -232,6 +232,10 @@ foreach($formulario as $keySeccion => $seccion){
 
         }elseif($pregunta["tipo"] == "radioMultiple"){
 
+            echo '
+            <!-- Disclaimer: Se puede seleccionar más de una alternativa -->
+            <p style="font-size: 12px; color: #666;">(Puede seleccionar más de una alternativa)</p>';
+
             foreach($pregunta["alternativas"] as $key => $alternativa){
                 echo '
                     <div class="radio">
