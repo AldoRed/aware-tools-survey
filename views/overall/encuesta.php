@@ -217,14 +217,14 @@ foreach($formulario as $keySeccion => $seccion){
                 
                 echo '
                     <div class="radio">
-                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="radio">
+                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="radio">
                         <label for="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" class="radio-label"><i class="fas fa-square"></i> '.$alternativa.'</label>
                     </div>
                 ';
                 if($alternativa === "Otro (especificar)"){
                     echo '
                     <div class="otro-container">
-                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
+                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'" placeholder="Especificar" class="otroEspecificar">
                     </div>
                     ';
                 }
@@ -235,14 +235,14 @@ foreach($formulario as $keySeccion => $seccion){
             foreach($pregunta["alternativas"] as $key => $alternativa){
                 echo '
                     <div class="radio">
-                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox">
+                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox">
                         <label for="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" class="radio-label"><i class="fas fa-square"></i> '.$alternativa.'</label>
                     </div>
                 ';
                 if($alternativa === "Otro (especificar)"){
                     echo '
                     <div class="otro-container">
-                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
+                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'" placeholder="Especificar" class="otroEspecificar">
                     </div>
                     ';
                 }
@@ -250,7 +250,7 @@ foreach($formulario as $keySeccion => $seccion){
 
         }elseif($pregunta["tipo"] == "text"){
 
-            echo '<input type="text" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Escribir respuesta aquí">';
+            echo '<input type="text" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" placeholder="Escribir respuesta aquí">';
         }else{
             echo "Tipo de pregunta no soportada";
         }
