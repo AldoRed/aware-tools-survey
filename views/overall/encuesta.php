@@ -3,10 +3,26 @@
 $encuesta = $encuestas[$key];
 
 // Temporalmente se agrega manualmente el array de preguntas frecuentes
-$preguntas = array(["¿Los datos donde quedan registrados?", "Los registros se almacenan en un archivo csv, el cual puedes descargar <a href='views/docs/resultadosColores.csv'>Aquí</a>"],
-                                        ["¿Qué datos serán requeridos?", "Edad, enfermedades que afecten a su visión y sexo"],
-                                     ["¿Existe algún requisito para contestar la encuesta?", "No hay requisitos para contestar encuesta."],
-                                     ["¿Quiénes somos?", "Somos un grupo de cuatro estudiantes de la Universidad Adolfo Ibañez de Viña del Mar. <b><br> Matthias Dietert.<br> Diego Figueroa.<br> Matias Orozco.<br> Aldo Muñoz.</b>"]);
+$preguntas = array(
+                [    
+                    "PROCEDIMIENTO",
+                    "La investigación propuesta consiste en realizar un estudio a partir de información agregada obtenida del llenado de encuestas de múltiples instituciones que tienen necesidades de ciberseguridad de manera de visibilizar áreas prioritarias de investigación en ciberseguridad en el País. Su tarea consiste en responder lo más fielmente que pueda a las preguntas formuladas."],
+                [
+                    "RIESGOS ASOCIADOS",
+                    "Su participación en este estudio implica un riesgo mínimo. Si bien usted al responder revela cierta información privada, la información recopilada mediante los cuestionarios será tratada de manera confidencial, resguardando la privacidad y confidencialidad de los datos de manera desagregada así como de los participantes."
+                ],
+                [
+                    "BENEFICIOS",
+                    "Los resultados de esta investigación serán utilizados para mejorar la comprensión de las necesidades y prioridades en ciberseguridad en Chile. Como resultado de participar en este estudio, se espera generar un informe con información agregada respecto de los resultados de la investigación."
+                ],
+                [
+                    "CONFIDENCIALIDAD",
+                    "Sólo el equipo de investigación y mandante tendrá acceso a los nombres de los participantes. Los datos serán anonimizados y tratados de manera confidencial."
+                ],
+                [
+                    "VOLUNTARIEDAD",
+                    "Su participación en este estudio es voluntaria. Usted tiene la libertad de retirarse de él cuando lo desee. Su retiro no significa que no pueda participar en otro de nuestros estudios en el futuro, si usted así lo decide. La asesora  puede detener el estudio si lo considera necesario, así como la participación de usted si lo requiere por cualquier razón."
+                ]);
 include "views/overall/encuesta/formularios/centroConCapacidades.php";
 include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
 // include "views/overall/encuesta/formularios/usoDeFondos.php";
@@ -208,7 +224,7 @@ foreach($formulario as $keySeccion => $seccion){
                 if($alternativa === "Otro (especificar)"){
                     echo '
                     <div class="otro-container">
-                        <input style="margin-left:19px;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
+                        <input style="margin-left:19px; width:80%;" type="text" name="pregunta-especificar-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" placeholder="Especificar" class="otroEspecificar">
                     </div>
                     ';
                 }
