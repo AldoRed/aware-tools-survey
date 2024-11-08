@@ -56,7 +56,7 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="<?php $url ?>views/css/styles.css?v=2.1">
+    <link rel="stylesheet" href="<?php $url ?>views/css/styles.css?v=2.2">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php $url ?>views/css/plugins/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -112,7 +112,7 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
 
 	?>
 
-<script src="views/js/encuestas.js?v=2.0"></script>
+<script src="views/js/encuestas.js?v=3.0"></script>
 <script src="views/js/consentimiento.js?v=2.0"></script>
 
 </body>

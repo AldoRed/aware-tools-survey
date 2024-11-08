@@ -35,54 +35,10 @@ $formulario = $formulario[$encuesta["id"]];
 <center>
 <div id="resultados">
     <?php 
+    
+    include "views/overall/encuesta/resultados.php";
         
-        if(isset($_POST["r"])){
-            
-            $myfile = fopen("views/docs/resultadosColores.csv", "a");
-            $nuevaData = $_POST["r"] ."\n";
-            fwrite($myfile, $nuevaData);
-            fclose($myfile);
-            
-            $resultados = explode(",",$_POST["r"]);
-            $promedio_error = 0;
-            $promedio_tiempo = 0;
-            $mejor_tiempo = $resultados[5];
-            $menor_error = $resultados[6];
-            
-            foreach($resultados as $key => $value){
-                
-                //Despues del ejercicio de prueba
-                if($key >= 5){
-                    if($key%2 != 0){
-                        $promedio_tiempo += $value;
-                        
-                        if($mejor_tiempo > $value){
-                            $mejor_tiempo = $value;
-                        }
-                    }else{
-                        $promedio_error += $value;
-                        
-                        if($menor_error > $value){
-                            $menor_error = $value;
-                        }
-                    }
-                }
-            }
-            
-            $promedio_error /= 5;
-            $promedio_tiempo /= 5;
-            
-            echo '
-            <section class="questions__offer" style="margin-bottom:10px;">
-                <a href="'.$url.'"><h2 class="subtitle">Volver página principal</h2></a>
-            </section>
-            ';
-        
-            return;
-        }
-        
-        
-        ?>
+    ?>
 </div>
 <div id="main">
     
@@ -247,7 +203,7 @@ foreach($formulario as $keySeccion => $seccion){
             foreach($pregunta["alternativas"] as $key => $alternativa){
                 echo '
                     <div class="radio">
-                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox" '.$required.'>
+                        <input id="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" style="cursor:pointer; padding-bottom: 20px;" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'[]" value="'.$alternativa.'" class="alternativaInput noDisplay" type="checkbox" '.$required.'>
                         <label for="radio-'.$keySeccion.'-'.$keyPregunta.'-'.$key.'" class="radio-label"><i class="fas fa-square"></i> '.$alternativa.'</label>
                     </div>
                 ';
