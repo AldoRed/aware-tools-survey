@@ -239,7 +239,7 @@ foreach($formulario as $keySeccion => $seccion){
     }else{
         // Botón de enviar
         echo '
-        <button type="submit" class="btn">
+        <button type="button" class="btn submitEncuesta">
             Enviar
         </button>';
     }

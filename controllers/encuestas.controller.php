@@ -30,8 +30,6 @@ class ControllerEncuestas{
             
         $file = fopen("views/docs/encuestas/".$nombre.".csv", "a");
 
-        
-
         $data = array();
 
         foreach($formulario as $key => $value){

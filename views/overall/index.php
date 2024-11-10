@@ -9,7 +9,7 @@
 <?php
 foreach ($encuestas as $key => $value) {
 
-    if(isset($_SESSION["encuestas"][$value["ruta"]])){
+    if(isset($_SESSION["encuestas"][$value["id"]])){
         $estado = "Completada";
     }else{
         $estado = "No respondida";

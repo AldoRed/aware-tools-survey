@@ -55,6 +55,39 @@ $(".siguiente").click(function(){
     }
 });
 
+// function submit Form
+$(".submitEncuesta").click(function(){
+
+    // Validate the last section
+    let inputs = $(this).find("input");
+
+    if(!checkInput(inputs)){
+        Swal.fire({
+            icon: "error",
+            title: "Por favor, revisa tus respuestas",
+            showConfirmButton: false,
+            timer: 1200
+        });
+        return;
+    }
+    
+    inputs = $(".seccion_0").parent().find("input");
+
+    removeRequired(inputs);
+
+    // Submit the form
+    $(this).attr("type", "submit");
+    $(this).click();
+});
+
+// function to remove the required attr from the inputs
+function removeRequired(inputs){
+    for(let i = 0; i < inputs.length; i++){
+        let input = inputs[i];
+        $(input).removeAttr("required");
+    }
+}
+
 // function to check if the input was answered if it's required
 function checkInput(inputs){
 
