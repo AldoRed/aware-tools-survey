@@ -45,7 +45,7 @@ $formulario = $formulario[$encuesta["id"]];
     <header class="hero">
     <nav class="nav container">
         <div class="nav_logo">
-            <h2 class="nav_title"><img src="views/img/logo.png" style="width:60px;" alt="Logo de Aware Tools"></h2>
+            <a href="<?php echo $url .'inicio' ?>"><h2 class="nav_title"><img src="views/img/logo.png" style="width:60px;" alt="Logo de Aware Tools"></h2></a>
         </div>
         
         <div class="nav_menu">
