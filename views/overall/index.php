@@ -5,7 +5,7 @@
     <h2 class="col-xs-9" style="padding-top: 25px;">Aware Tools Survey</h2>
 </div>
 <h2 class="col-xs-12">Las encuestas disponibles son:</h2>
-<div class="container-fluid">
+<div class="row container">
 <?php
 foreach ($encuestas as $key => $value) {
 
