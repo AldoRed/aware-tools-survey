@@ -1,9 +1,5 @@
 <section class="encuestasDisponibles">
 <div class="container">
-<div class="">
-    <img src="views/img/logo.png" style="width:140px;" alt="Logo de Aware Tools" class="logo col-xs-3">
-    <h2 class="col-xs-9" style="padding-top: 25px;">Aware Tools Survey</h2>
-</div>
 <h2 class="col-xs-12">Las encuestas disponibles son:</h2>
 <div class="row container">
 <?php

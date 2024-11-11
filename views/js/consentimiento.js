@@ -1,7 +1,11 @@
 function aceptarConsentimiento() {
-    window.location.href = "acuerdo/aceptar";
+    // Get url
+    let url = $("#url").val();
+    window.location.href = url + "acuerdo/aceptar";
 }
 
 function rechazarConsentimiento() {
-    window.location = window.location.href;
+    // Get url
+    let url = $("#url").val();
+    window.location.href = url + "acuerdo/rechazar";
 }

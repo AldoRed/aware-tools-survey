@@ -44,9 +44,7 @@ $formulario = $formulario[$encuesta["id"]];
     
     <header class="hero">
     <nav class="nav container">
-        <div class="nav_logo">
-            <a href="<?php echo $url .'inicio' ?>"><h2 class="nav_title"><img src="views/img/logo.png" style="width:60px;" alt="Logo de Aware Tools"></h2></a>
-        </div>
+        
         
         <div class="nav_menu">
             <img src="">
@@ -94,8 +92,8 @@ PNC.</p>
 
         
         <section class="questions container">
-            <h2 class="subtitle">Preguntas frecuentes</h2>
-            <p class="questions__paragraph">Algunas preguntas y respuestas que quizas te puedas haber hecho.</p>
+            <h2 class="subtitle">Consentimiento Informado</h2>
+            <p class="questions__paragraph">Puedes modificar tu consentimiento en cualquier momento <a href="<?php echo $url ?>acuerdo">aquí</a></p>
 
             <section class="questions__container">
 

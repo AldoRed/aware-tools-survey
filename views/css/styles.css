@@ -41,6 +41,16 @@ input{
     color: white;
 }
 
+.nav-icon{
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.nav-title{
+    margin-top: 12px;
+    color:#000;
+}
+
 .hero{
     width:100%;
     height:100vh;
