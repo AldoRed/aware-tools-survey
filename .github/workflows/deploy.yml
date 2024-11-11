@@ -32,15 +32,18 @@ jobs:
       - name: Install Composer dependencies if needed
         run: |
           set -x
+          echo "Checking if Composer dependencies have changed..."
           REMOTE_LOCK_FILE="/home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/extensions/composer.lock"
           LOCAL_LOCK_FILE="./extensions/composer.lock"
 
           # Sincronizar el archivo composer.lock para comparar
+          echo "Syncing composer.lock files..."
           rsync -avz --exclude='.git/' --exclude='vendor/' --exclude='.env' \
           -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }}" \
-          ./composer.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:$REMOTE_LOCK_FILE.tmp
+          ./extensions/composer.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:$REMOTE_LOCK_FILE.tmp
 
           # Comparar el archivo composer.lock remoto con el local
+          echo "Comparing composer.lock files..."
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
             "diff $REMOTE_LOCK_FILE $REMOTE_LOCK_FILE.tmp > /dev/null || (
               echo 'Composer dependencies have changed. Installing dependencies...'
