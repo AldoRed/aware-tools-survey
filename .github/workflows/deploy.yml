@@ -38,7 +38,7 @@ jobs:
           # Sincronizar el archivo composer.lock para comparar
           rsync -avz --exclude='.git/' --exclude='vendor/' --exclude='.env' \
           -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }}" \
-          ./extentions/composer.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:$REMOTE_LOCK_FILE.tmp
+          ./composer.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:$REMOTE_LOCK_FILE.tmp
 
           # Comparar el archivo composer.lock remoto con el local
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
