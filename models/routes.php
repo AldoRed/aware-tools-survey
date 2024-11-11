@@ -3,12 +3,12 @@
 class Ruta{
 	static public function ctrRuta(){
 
-		return "http://localhost:8888/encuestaAware/encuesta-cibermadurez/";
+		return $_ENV['URL'];
 	
 	}
 	static public function ctrRutaServ(){
 
-		return "https://admin.aldored.com/";
+		return $_ENV['URL_SERVER'];
 	
 	}
 }

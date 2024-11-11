@@ -1,3 +1,5 @@
 views/docs
 
 .DS_Store
+.env
+extensions/vendor
