@@ -1,0 +1,34 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Clonar repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Paso 2: Configurar la clave SSH para conectarse al servidor
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+
+      # Paso 3: Sincronizar archivos con rsync
+      - name: Sync files to server
+        run: |
+          rsync -avz --exclude='.git/' --exclude='vendor/' --exclude='.env' \
+          -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }}" \
+          ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/
+
+      # Paso 4: Ejecutar Composer en el servidor
+      - name: Install Composer dependencies
+        run: |
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SEVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+          "cd /home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/extensions && composer install --no-dev --optimize-autoloader"
