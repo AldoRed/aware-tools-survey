@@ -2,12 +2,15 @@
 
 session_start();
 
+// Controllers
 require_once "controllers/template.controller.php";
 require_once "controllers/encuestas.controller.php";
 
+// Models
+require_once "models/encuestas.models.php";
 require_once "models/routes.php";
 
-// Add vendor
+// Vendor autoload
 require_once "extensions/vendor/autoload.php";
 
 // Load environment variables

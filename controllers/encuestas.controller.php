@@ -2,6 +2,15 @@
 
 class ControllerEncuestas{
 
+    static public function ctrMostrarEncuestas($item = null, $valor = null){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlMostrarEncuestas($tabla, $item, $valor);
+
+        return $respuesta;
+    }
+
     static public function ctrCrearCSV($nombre, $formulario, $post){
 
         if(!file_exists("views/docs/encuestas/".$nombre.".csv")){

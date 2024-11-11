@@ -11,15 +11,15 @@ if(isset($_GET['ruta'])){
 $url = Ruta::ctrRuta();
 
 // Encuestas actuales
-$encuestas = array();
-$encuestas[0]["id"] = 1;
-$encuestas[0]["nombre"] = "Demanda de Capacidades I+D en Ciberseguridad de parte de los sectores Información General";
-$encuestas[0]["ruta"] = "demanda-de-capacidades-i-d-en-ciberseguridad-de-parte-de-los-sectores-informacion-general";
-$encuestas[0]["imagen"] = "views/img/encuestas/encuesta2.webp";
-$encuestas[1]["id"] = 2;
-$encuestas[1]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
-$encuestas[1]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
-$encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
+$encuestas = ControllerEncuestas::ctrMostrarEncuestas();
+// $encuestas[0]["id"] = 1;
+// $encuestas[0]["nombre"] = "Demanda de Capacidades I+D en Ciberseguridad de parte de los sectores Información General";
+// $encuestas[0]["ruta"] = "demanda-de-capacidades-i-d-en-ciberseguridad-de-parte-de-los-sectores-informacion-general";
+// $encuestas[0]["imagen"] = "views/img/encuestas/encuesta2.webp";
+// $encuestas[1]["id"] = 2;
+// $encuestas[1]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
+// $encuestas[1]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
+// $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
 
 
 ?>
@@ -39,11 +39,11 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
     <?php
 
     foreach ($encuestas as $key => $value) {
-        if($ruta == $value['ruta']){
+        if($ruta == $value['slug']){
             echo '<meta property="og:title"   content="'. $value['nombre'] .'">
             <meta property="og:url" content="'. $url.$ruta.'">
             <meta property="og:description" content="Encuestas de investigación de Aware Tools">
-            <meta property="og:image"  content="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <meta property="og:image"  content="'. $url.$value['imagen'] .'">
             <meta property="og:type"  content="website">	
             <meta property="og:site_name" content="AldoRed">
             <meta property="og:locale" content="es_CL">
@@ -51,7 +51,7 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
             <meta itemprop="name" content="'. $value['nombre'] .'">
             <meta itemprop="url" content="'. $url.$ruta.'">
             <meta itemprop="description" content="Encuestas de investigación de Aware Tools">
-            <meta itemprop="image" content="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">';
+            <meta itemprop="image" content="'. $url.$value['imagen'] .'">';
         }
     }
     ?>
@@ -96,7 +96,7 @@ $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
         // Si $ruta está incluida en la lista de $encuestas[$i]["ruta"] include "overall/encuesta.php"
         elseif(isset($encuestas) && !empty($encuestas)){
             foreach ($encuestas as $key => $value) {
-                if($ruta == $value['ruta']){
+                if($ruta == $value['slug']){
                     include "overall/encuesta.php";
                     break;
                 }

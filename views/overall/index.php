@@ -14,11 +14,11 @@ foreach ($encuestas as $key => $value) {
     // Create cards with the name of the survey and a link to it
     echo '
     <div class="card col-xs-12 col-sm-6 col-md-4">
-      <img src="'.$value["imagen"].'" class="card-img-top" alt="'.$value["nombre"].'">
+      <img src="'.$url.$value["imagen"].'" class="card-img-top" alt="'.$value["nombre"].'">
       <div class="card-body">
         <h5 class="card-title">'.$value["nombre"].'</h5>
         <p class="card-text">'.$estado.'</p>
-        <a href="'.$value["ruta"].'" class="btn-card">Entrar</a>
+        <a href="'.$value["slug"].'" class="btn-card">Entrar</a>
       </div>
     </div>';
 }
