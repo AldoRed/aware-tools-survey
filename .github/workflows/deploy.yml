@@ -32,5 +32,5 @@ jobs:
       - name: Install Composer dependencies
         run: |
           set -x
-          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SEVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
           "cd /home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/extensions && composer install --no-dev --optimize-autoloader"
