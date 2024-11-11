@@ -18,7 +18,7 @@ foreach ($encuestas as $key => $value) {
       <div class="card-body">
         <h5 class="card-title">'.$value["nombre"].'</h5>
         <p class="card-text">'.$estado.'</p>
-        <a href="'.$value["slug"].'" class="btn-card">Entrar</a>
+        <a href="'.$url.$value["slug"].'" class="btn-card">Entrar</a>
       </div>
     </div>';
 }
