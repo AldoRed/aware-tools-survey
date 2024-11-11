@@ -11,9 +11,8 @@ if(isset($rutas[1]) && $rutas[1] == "aceptar"){
       timer: 2000,
       showConfirmButton: false
     }).then(function(){
-      // Get the actual page
-      let url = window.location.href;
-      // if the url contains "acuerdo" go back 2 pages
+      // Get the back url
+      let url = document.referrer
       if(url.includes("acuerdo")){
         window.history.go(-2);
       } 
