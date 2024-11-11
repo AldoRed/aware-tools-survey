@@ -29,8 +29,21 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aware Tools Survey</title>
-    <meta name="description" content="Encuestas de investigación de Aware Tools">
+
+    <?php
+    if($ruta == "inicio"){
+        echo '<meta name="description" content="Encuestas de investigación de Aware Tools">
+        <meta name="author" content="AldoRed">
+        <title>Aware Tools Survey</title>';
+    }else{
+        foreach ($encuestas as $key => $value) {
+            if($ruta == $value['slug']){
+                echo '<title>'. $value['nombre'] .'</title>';
+                echo '<meta name="description" content="'. $value["descripcion"] .'">';
+            }
+        }
+    }
+    ?>
     <meta name="keywords" content="encuestas, investigación, ciberseguridad, cibermadurez, ciberseguridad, ciberseguridad">
     <meta name="author" content="AldoRed">
     <!-- ICON -->
@@ -42,7 +55,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
         if($ruta == $value['slug']){
             echo '<meta property="og:title"   content="'. $value['nombre'] .'">
             <meta property="og:url" content="'. $url.$ruta.'">
-            <meta property="og:description" content="Encuestas de investigación de Aware Tools">
+            <meta property="og:description" content="'. $value["descripcion"] .'">
             <meta property="og:image"  content="'. $url.$value['imagen'] .'">
             <meta property="og:type"  content="website">	
             <meta property="og:site_name" content="AldoRed">
@@ -50,7 +63,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
             <meta itemprop="name" content="'. $value['nombre'] .'">
             <meta itemprop="url" content="'. $url.$ruta.'">
-            <meta itemprop="description" content="Encuestas de investigación de Aware Tools">
+            <meta itemprop="description" content="'. $value["descripcion"] .'">
             <meta itemprop="image" content="'. $url.$value['imagen'] .'">';
         }
     }
