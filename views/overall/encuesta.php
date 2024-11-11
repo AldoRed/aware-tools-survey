@@ -62,12 +62,8 @@ $formulario = $formulario[$encuesta["id"]];
 
 <main>
         <section class="container about">
-            <h2 class="subtitle">¿Cuál es nuestro objetivo?</h2>
-            <p class="about__paragraph" style="text-align: justify;">En este estudio, buscamos levantar las capacidades de ciberseguridad que los centros podrían tener,
-entendiendo que la ciberseguridad es transversal. El objetivo es identificar nodos a nivel nacional
-que puedan convertirse en una red nacional de investigación en ciberseguridad, permitiendo que las
-comunidades de equipos de investigación desarrollen proyectos conjuntos en apoyo al Pilar 5 de la
-PNC.</p>
+            <h2 class="subtitle">Descripción</h2>
+            <p class="about__paragraph" style="text-align: center;"><?php echo $encuesta["descripcion"] ?></p>
 
             <div class="about__main">
                 <article class="about__icons">
