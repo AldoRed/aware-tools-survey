@@ -33,7 +33,7 @@ if(sizeof($secciones) == 0){
     // Si no hay secciones, mostrar un recuadro de error con un boton de ir a editar encuesta
     echo '
     <div class="alert alert-danger" role="alert">
-        No se han encontrado secciones para esta encuesta. Por favor, edite la encuesta y agregue secciones. <a href="'.$url.'admin/editar/'.$encuesta["slug"].'">Editar encuesta</a>
+        No se han encontrado secciones para esta encuesta. Por favor, edite la encuesta y agregue secciones. <a href="'.$url.'admin/editar-encuesta/'.$encuesta["slug"].'">Editar encuesta</a>
     </div>
     ';
 }
