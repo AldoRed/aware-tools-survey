@@ -12,14 +12,6 @@ $url = Ruta::ctrRuta();
 
 // Encuestas actuales
 $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
-// $encuestas[0]["id"] = 1;
-// $encuestas[0]["nombre"] = "Demanda de Capacidades I+D en Ciberseguridad de parte de los sectores Información General";
-// $encuestas[0]["ruta"] = "demanda-de-capacidades-i-d-en-ciberseguridad-de-parte-de-los-sectores-informacion-general";
-// $encuestas[0]["imagen"] = "views/img/encuestas/encuesta2.webp";
-// $encuestas[1]["id"] = 2;
-// $encuestas[1]["nombre"] = "Centro con Capacidades I+D en Ciberseguridad";
-// $encuestas[1]["ruta"] = "centro-con-capacidades-i-d-en-ciberseguridad";
-// $encuestas[1]["imagen"] = "views/img/encuestas/encuesta1.webp";
 
 
 ?>
@@ -31,10 +23,9 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php
-    if($ruta == "inicio"){
+    if($ruta == "inicio" || $ruta == null){
         echo '<meta name="description" content="Encuestas de investigación de Aware Tools">
-        <meta name="author" content="AldoRed">
-        <title>Aware Tools Survey</title>';
+              <title>Aware Tools Survey</title>';
     }else{
         foreach ($encuestas as $key => $value) {
             if($ruta == $value['slug']){
