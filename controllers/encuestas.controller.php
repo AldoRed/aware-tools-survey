@@ -66,4 +66,13 @@ class ControllerEncuestas{
 
         fclose($file);
     }
+
+    static public function ctrEditarAdminEncuesta($datos){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlEditarAdminEncuesta($tabla, $datos);
+
+        return $respuesta;
+    }
 }

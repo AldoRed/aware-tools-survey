@@ -27,6 +27,13 @@ include "views/overall/encuesta/formularios/centroConCapacidades.php";
 include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
 // include "views/overall/encuesta/formularios/usoDeFondos.php";
 
+$secciones = ControllerSecciones::ctrMostrarSecciones("encuesta_id", $encuesta["id"]);
+
+if(sizeof($secciones) == 0 ){
+    echo '<script>window.location = "'.$url.'admin/'.$encuesta["slug"].'";</script>';
+}
+
+var_dump($secciones);
 
 $formulario = $formulario[$encuesta["id"]];
 
@@ -62,12 +69,8 @@ $formulario = $formulario[$encuesta["id"]];
 
 <main>
         <section class="container about">
-            <h2 class="subtitle">¿Cuál es nuestro objetivo?</h2>
-            <p class="about__paragraph" style="text-align: justify;">En este estudio, buscamos levantar las capacidades de ciberseguridad que los centros podrían tener,
-entendiendo que la ciberseguridad es transversal. El objetivo es identificar nodos a nivel nacional
-que puedan convertirse en una red nacional de investigación en ciberseguridad, permitiendo que las
-comunidades de equipos de investigación desarrollen proyectos conjuntos en apoyo al Pilar 5 de la
-PNC.</p>
+            <h2 class="subtitle">Descripción</h2>
+            <p class="about__paragraph" style="text-align: center;"><?php echo $encuesta["descripcion"] ?></p>
 
             <div class="about__main">
                 <article class="about__icons">
@@ -138,7 +141,7 @@ PNC.</p>
         left:0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(<?php echo $encuesta["imagen"] ?>);
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(<?php echo $url . $encuesta["imagen"] ?>);
         background-size:cover;
         clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
         z-index:-1;
