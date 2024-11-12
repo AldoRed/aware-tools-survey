@@ -34,3 +34,27 @@ jobs:
           set -x
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
           "cd /home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/extensions && composer install --no-dev --optimize-autoloader"
+
+      # Paso 5: Registrar el deployment
+      - name: Register deployment in GitHub
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const deployment = await github.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.ref,
+              required_contexts: [],
+              environment: 'production',
+              description: 'Deployed successfully to production server',
+              auto_merge: false
+            });
+
+            github.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: deployment.data.id,
+              state: 'success',
+              environment_url: 'https://encuesta.aware.tools',
+              log_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            });
