@@ -40,7 +40,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const deployment = await github.repos.createDeployment({
+            const { data: deployment } = await github.rest.repos.createDeployment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: context.ref,
@@ -50,10 +50,10 @@ jobs:
               auto_merge: false
             });
 
-            github.repos.createDeploymentStatus({
+            await github.rest.repos.createDeploymentStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              deployment_id: deployment.data.id,
+              deployment_id: deployment.id,
               state: 'success',
               environment_url: 'https://encuesta.aware.tools',
               log_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
