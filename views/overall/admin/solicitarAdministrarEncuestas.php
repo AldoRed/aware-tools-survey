@@ -155,13 +155,14 @@ if(isset($_POST["encuestas"])){
                     <?php endforeach; ?>
                 </table>
             </div>
-    <div class="form-group">
-        <label for="mensaje">Mensaje</label>
-        <textarea class="form-control" name="mensaje" rows="3" required></textarea>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" name="mensaje" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn col-xs-12 enviarEmail">Enviar</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary enviarEmail">Enviar</button>
-</form>
-
+</secion>
 
 <style>
 table {
@@ -175,5 +176,10 @@ table td {
 
 table input[type="checkbox"] {
     margin: 0;
+}
+
+#solicitarAdministrarEncuestas form{
+    min-height: 80vh;
+    margin-bottom: 10px;
 }
 </style>
