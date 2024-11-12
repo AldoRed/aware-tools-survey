@@ -1,6 +1,31 @@
+<div class="container" style="margin-top: 20px;">
+    <!-- Boton para crear encuesta -->
+    <a href="<?php echo $url ?>admin/crear-encuesta" class="btn btn-success">Crear una encuesta</a>
+
+    <!-- Boton para visualizar encuestas -->
+    <a href="<?php echo $url ?>admin/visualizar-encuestas" class="btn btn-primary">Encuestas Aprobadas</a>
+
+    <!-- Boton para solicitar administrar encuestas -->
+    <a href="<?php echo $url ?>admin/solicitar-administrar-encuestas" class="btn btn-primary">Solicitar administrar encuestas</a>
+
+    <!-- Boton para enviar encuestas -->
+    <a href="<?php echo $url ?>admin/enviar-encuestas" class="btn btn-primary">Enviar encuestas</a>
+</div>
+
 <?php
 
-if(!isset($rutas[1])){
+// Visualizar encuestas
+if(!isset($rutas[1]) || $rutas[1] == "visualizar-encuestas"){
+
+    $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
+
+    include "views/overall/admin/visualizarEncuestas.php";
+
+    return;
+}
+
+// Solicitar administrar encuestas
+if($rutas[1] == "solicitar-administrar-encuestas"){
 
     $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
@@ -9,42 +34,28 @@ if(!isset($rutas[1])){
     return;
 }
 
-$encuesta = ControllerEncuestas::ctrMostrarEncuestas("slug", $rutas[1]);
+// Crear encuesta
+if($rutas[1] == "crear-encuesta"){
 
-if($encuesta){
-    
-    $secciones = ControllerSecciones::ctrMostrarSecciones("encuesta_id", $encuesta["id"]);
+    include "views/overall/admin/crearEncuesta.php";
+
+    return;
 }
-?>
 
-<section id="encuestaEdit">
-    <form method="post">
-        <div class="container">
-            <h2>Editar encuesta</h2>
-            <!-- Title of survey into input -->
-             <div class="form-group">
-                <label for="nombreEncuesta">Nombre de la encuesta</label>
-                <input type="text" class="form-control" name="nombreEncuesta" value="<?php echo $encuesta["nombre"] ?>" required>
-            </div>
+// Editar encuesta
+if($rutas[1] == "editar-encuesta"){
 
-            <!-- Slug of survey into input -->
-            <div class="form-group">
-                <label for="slugEncuesta">Slug de la encuesta</label>
-                <input type="text" class="form-control" name="slugEncuesta" value="<?php echo $encuesta["slug"] ?>" readonly>
-            </div>
+    $encuesta = ControllerEncuestas::ctrMostrarEncuestas("slug", $rutas[2]);
 
-            <!-- Description of survey into textarea -->
-            <div class="form-group">
-                <label for="descripcionEncuesta">Descripción de la encuesta</label>
-                <textarea class="form-control" name="descripcionEncuesta" rows="3" required><?php echo $encuesta["descripcion"] ?></textarea>
-            </div>
+    include "views/overall/admin/editarEncuesta.php";
 
-            <!-- Image of survey into input -->
-            <div class="form-group">
-                <label for="imagenEncuesta">Imagen de la encuesta</label>
-                <img src="<?php echo $url.$encuesta["imagen"] ?>" class="img-thumbnail" width="250px">
-                <input type="file" class="form-control" name="imagenEncuesta">
-            </div>
-        </div>
-    </form>
-</section>
+    return;
+}
+
+// Enviar encuestas
+if($rutas[1] == "enviar-encuestas"){
+
+    include "views/overall/admin/enviarEncuestas.php";
+
+    return;
+}

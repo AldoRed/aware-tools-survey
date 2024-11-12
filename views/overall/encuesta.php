@@ -29,8 +29,22 @@ include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
 
 $secciones = ControllerSecciones::ctrMostrarSecciones("encuesta_id", $encuesta["id"]);
 
-if(sizeof($secciones) == 0 ){
-    echo '<script>window.location = "'.$url.'admin/'.$encuesta["slug"].'";</script>';
+if(sizeof($secciones) == 0){
+    // Si no hay secciones, mostrar un recuadro de error con un boton de ir a editar encuesta
+    echo '
+    <div class="alert alert-danger" role="alert">
+        No se han encontrado secciones para esta encuesta. Por favor, edite la encuesta y agregue secciones. <a href="'.$url.'admin/editar/'.$encuesta["slug"].'">Editar encuesta</a>
+    </div>
+    ';
+}
+
+if(!isset($rutas[1])){
+    // Si la encuesta no tiene ningún token, informar que solo es una vista previa. No se guardará ninguna respuesta
+    echo '
+    <div class="alert alert-warning" role="alert">
+        Esta es una vista previa de la encuesta. No se guardarán respuestas. <a href="'.$url.'admin">Volver a administración</a>
+    </div>';
+    
 }
 
 var_dump($secciones);
