@@ -103,6 +103,10 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
         if($ruta == "inicio"){
             include "overall/index.php";
+        }elseif($ruta == "admin"){
+            include "overall/admin.php";
+        }elseif($ruta == "aceptarSolicitudAdministrarEncuestas" && isset($rutas[1])){
+            include "overall/admin/aceptarSolicitudAdministrarEncuestas.php";
         }elseif(!isset($_SESSION["consentimiento"]) || $_SESSION["consentimiento"] == false || $ruta == "acuerdo"){
             include "overall/encuesta/acuerdo.php";
         }
@@ -127,8 +131,9 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
 	?>
 <input type="hidden" id="url" value="<?php echo $url ?>">
-<script src="<?php echo $url ?>views/js/encuestas.js?v=3.1"></script>
+<script src="<?php echo $url ?>views/js/encuestas.js?v=3.2"></script>
 <script src="<?php echo $url ?>views/js/consentimiento.js?v=2.1"></script>
+<script src="<?php echo $url ?>views/js/email.js?v=1.0"></script>
 
 </body>
 </html>

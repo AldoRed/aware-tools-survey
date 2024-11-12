@@ -31,4 +31,26 @@ class ModelEncuestas{
         $stmt = null;
 
     }
+
+    static public function mdlEditarAdminEncuesta($tabla, $datos){
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET administradores = :admins WHERE id = :id");
+
+        $stmt -> bindParam(":admins", $datos["admins"], PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
 }

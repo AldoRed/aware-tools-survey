@@ -27,6 +27,13 @@ include "views/overall/encuesta/formularios/centroConCapacidades.php";
 include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
 // include "views/overall/encuesta/formularios/usoDeFondos.php";
 
+$secciones = ControllerSecciones::ctrMostrarSecciones("encuesta_id", $encuesta["id"]);
+
+if(sizeof($secciones) == 0 ){
+    echo '<script>window.location = "'.$url.'admin/'.$encuesta["slug"].'";</script>';
+}
+
+var_dump($secciones);
 
 $formulario = $formulario[$encuesta["id"]];
 
