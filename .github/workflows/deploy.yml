@@ -14,13 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
-      # Paso 2: Configurar la clave SSH para conectarse al servidor
+      # Paso 2: Configurar caché de Composer
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.composer/cache
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      # Paso 3: Configurar la clave SSH para conectarse al servidor
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
-      # Paso 3: Sincronizar archivos con rsync
+      # Paso 4: Sincronizar archivos con rsync
       - name: Sync files to server
         run: |
           set -x
@@ -28,14 +37,14 @@ jobs:
           -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }}" \
           ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/
 
-      # Paso 4: Ejecutar Composer en el servidor
+      # Paso 5: Ejecutar Composer en el servidor
       - name: Install Composer dependencies
         run: |
           set -x
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
           "cd /home/${{ secrets.SERVER_USER }}/encuesta.aware.tools/extensions && composer install --no-dev --optimize-autoloader"
 
-      # Paso 5: Registrar el deployment
+      # Paso 6: Registrar el deployment
       - name: Register deployment in GitHub
         uses: actions/github-script@v6
         with:
