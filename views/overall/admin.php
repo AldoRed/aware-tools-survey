@@ -1,15 +1,15 @@
 <div class="container" style="margin-top: 20px;">
     <!-- Boton para crear encuesta -->
-    <a href="<?php echo $url ?>admin/crear-encuesta" class="btn btn-success">Crear una encuesta</a>
+    <a href="<?php echo $url ?>admin/crear-encuesta" style="margin-bottom: 10px;" class="btn btn-success">Crear una encuesta</a>
 
     <!-- Boton para visualizar encuestas -->
-    <a href="<?php echo $url ?>admin/visualizar-encuestas" class="btn btn-primary">Encuestas Aprobadas</a>
+    <a href="<?php echo $url ?>admin/visualizar-encuestas" style="margin-bottom: 10px;" class="btn btn-primary">Encuestas Aprobadas</a>
 
     <!-- Boton para solicitar administrar encuestas -->
-    <a href="<?php echo $url ?>admin/solicitar-administrar-encuestas" class="btn btn-primary">Solicitar administrar encuestas</a>
+    <a href="<?php echo $url ?>admin/solicitar-administrar-encuestas" style="margin-bottom: 10px;" class="btn btn-primary">Solicitar administrar encuestas</a>
 
     <!-- Boton para enviar encuestas -->
-    <a href="<?php echo $url ?>admin/enviar-encuestas" class="btn btn-primary">Enviar encuestas</a>
+    <a href="<?php echo $url ?>admin/enviar-encuestas" style="margin-bottom: 10px;" class="btn btn-primary">Enviar encuestas</a>
 </div>
 
 <?php
