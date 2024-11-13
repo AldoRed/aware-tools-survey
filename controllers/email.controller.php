@@ -37,19 +37,7 @@ class ControllerEmail{
             $mail->Subject = $asunto;
             $mail->Body    = $mensaje;
             
-            if($mail->send()){
-                echo "<script>
-                    Swal.fire({
-                    title: '¡Correo enviado!',
-                    text: 'El correo ha sido enviado correctamente.',
-                    icon: 'success',
-                    timer: 2000,
-                    showConfirmButton: false
-                }).then(function(){
-                    window.location.href = '".$url."inicio';
-                });
-                </script>";
-            }
+            $mail->send();
             
         }catch(Exception $e){
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

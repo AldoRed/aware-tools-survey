@@ -67,6 +67,24 @@ class ControllerEncuestas{
         fclose($file);
     }
 
+    static public function ctrCrearEncuesta($datos){
+
+        $tabla = "encuestas_no_aprobadas";
+
+        $respuesta = ModelEncuestas::mdlCrearEncuesta($tabla, $datos);
+
+        return $respuesta;
+    }
+
+    static public function ctrCheckearSlug($slug){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlCheckearSlug($tabla, $slug);
+
+        return $respuesta;
+    }
+
     static public function ctrEditarAdminEncuesta($datos){
 
         $tabla = "encuestas";

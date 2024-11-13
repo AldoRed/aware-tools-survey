@@ -23,16 +23,16 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php
-    if($ruta == "inicio" || $ruta == null){
-        echo '<meta name="description" content="Encuestas de investigación de Aware Tools">
-              <title>Aware Tools Survey</title>';
-    }else{
+    if($ruta != "inicio" && $ruta != "admin" && $ruta != "aceptarSolicitudAdministrarEncuestas"){
         foreach ($encuestas as $key => $value) {
             if($ruta == $value['slug']){
                 echo '<title>'. $value['nombre'] .'</title>';
                 echo '<meta name="description" content="'. $value["descripcion"] .'">';
             }
         }
+    }else{
+        echo '<title>'. $ruta .' - Aware Tools Survey</title>
+            <meta name="description" content="Encuestas de investigación de Aware Tools">';
     }
     ?>
     <meta name="keywords" content="encuestas, investigación, ciberseguridad, cibermadurez, ciberseguridad, ciberseguridad">
@@ -60,7 +60,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.0">
+    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $url ?>views/css/plugins/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -122,9 +122,9 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
 	?>
 <input type="hidden" id="url" value="<?php echo $url ?>">
-<script src="<?php echo $url ?>views/js/encuestas.js?v=3.2"></script>
+<script src="<?php echo $url ?>views/js/encuestas.js?v=3.3"></script>
 <script src="<?php echo $url ?>views/js/consentimiento.js?v=2.1"></script>
-<script src="<?php echo $url ?>views/js/email.js?v=1.0"></script>
+<script src="<?php echo $url ?>views/js/email.js?v=2.0"></script>
 
 </body>
 </html>
