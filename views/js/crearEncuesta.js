@@ -62,6 +62,11 @@ $("#imagenEncuesta").on("change", function() {
     reader.readAsDataURL(file);
 });
 
+function validarCorreo(correo){
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(correo);
+}
+
 
 $("#btnCrearSeccion").on("click", function() {
     // Agregar un nuevo td al final de la tabla tbody de secciones
@@ -193,8 +198,8 @@ $("#enviarCrearEncuesta").click(function() {
         return;
     }
 
-    if(correoCreador == ""){
-        alert("Debe ingresar un correo para el creador de la encuesta");
+    if(correoCreador == "" || !validarCorreo(correoCreador)){
+        alert("Debe ingresar un correo y ser válido");
         return;
     }
 
