@@ -11,6 +11,15 @@ class ControllerEncuestas{
         return $respuesta;
     }
 
+    static public function ctrMostrarEncuestasNoAprobadas($token){
+
+        $tabla = "encuestas_no_aprobadas";
+
+        $respuesta = ModelEncuestas::mdlMostrarEncuestasNoAprobadas($tabla, $token);
+
+        return $respuesta;
+    }
+
     static public function ctrCrearCSV($nombre, $formulario, $post){
 
         if(!file_exists("views/docs/encuestas/".$nombre.".csv")){
@@ -76,6 +85,15 @@ class ControllerEncuestas{
         return $respuesta;
     }
 
+    static public function ctrCrearEncuestaAprobada($datos){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlCrearEncuestaAprobada($tabla, $datos);
+
+        return $respuesta;
+    }
+
     static public function ctrCheckearSlug($slug){
 
         $tabla = "encuestas";
@@ -90,6 +108,15 @@ class ControllerEncuestas{
         $tabla = "encuestas";
 
         $respuesta = ModelEncuestas::mdlEditarAdminEncuesta($tabla, $datos);
+
+        return $respuesta;
+    }
+
+    static public function ctrEliminarEncuestaNoAprobada($token){
+
+        $tabla = "encuestas_no_aprobadas";
+
+        $respuesta = ModelEncuestas::mdlEliminarEncuestaNoAprobada($tabla, $token);
 
         return $respuesta;
     }
