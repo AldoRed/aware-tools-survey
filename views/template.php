@@ -23,16 +23,16 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php
-    if($ruta == "inicio" || $ruta == null){
-        echo '<meta name="description" content="Encuestas de investigación de Aware Tools">
-              <title>Aware Tools Survey</title>';
-    }else{
+    if($encuestas){
         foreach ($encuestas as $key => $value) {
             if($ruta == $value['slug']){
                 echo '<title>'. $value['nombre'] .'</title>';
                 echo '<meta name="description" content="'. $value["descripcion"] .'">';
             }
         }
+    }else{
+        echo '<meta name="description" content="Encuestas de investigación de Aware Tools">
+              <title>Aware Tools Survey</title>';
     }
     ?>
     <meta name="keywords" content="encuestas, investigación, ciberseguridad, cibermadurez, ciberseguridad, ciberseguridad">
