@@ -75,7 +75,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     <!-- SweetAlert2 -->
     <script src="<?php echo $url ?>views/js/plugins/sweetalert.min.js"></script>
 </head>
-<body>
+<body style="background: #f9f9f9;">
     <?php  
 
 	$rutas = array();
