@@ -69,6 +69,7 @@
                                             <input type="text" class="form-control" placeholder="Ejemplo: Entre 2 y 5 años" value="Martes">
                                             <input type="text" class="form-control" placeholder="Ejemplo: Más de 5 años" value="Miercoles">
                                             <button type="button" class="btn btn-success agregarNuevaAlternativa"><i class="fas fa-plus"></i></button>
+                                            <button type="button" class="btn btn-primary agregarOtro"><i class='fas fa-plus'></i> Agregar otro</button>
                                         </td>
                                         <td>
                                             <input class="form-control" type="checkbox" checked>

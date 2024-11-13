@@ -121,6 +121,7 @@ $(document).on("change", ".tipoPregunta", function() {
     if (tipo == "radio" || tipo == "radioMultiple") {
         html += '<input type="text" class="form-control" >';
         html += '<button type="button" class="btn btn-success agregarNuevaAlternativa"><i class="fas fa-plus"></i></button>';
+        html += '<button type="button" class="btn btn-primary agregarOtro" accion="agregar"><i class="fas fa-plus"></i> Agregar otro</button>';
     }
 
     $(this).closest("tr").find("td:eq(2)").html(html);
@@ -130,6 +131,32 @@ $(document).on("click", ".agregarNuevaAlternativa", function() {
     let html = '<input type="text" class="form-control">';
     $(this).before(html);
 });
+
+$(document).on("click", ".agregarOtro", function () {
+    const accion = $(this).attr("accion");
+
+    if(accion == "quitar"){
+        $(this).attr("accion", "agregar");
+        // remove input added before this button
+        $(this).prev().remove();
+
+        // Change class "btn-danger" to "btn-primary"
+        $(this).removeClass("btn-danger");
+        $(this).addClass("btn-primary");
+        $(this).html("<i class='fas fa-plus'></i> Agregar otro");
+        return;
+    }
+
+    $(this).attr("accion", "quitar");
+    // Change class "btn-danger" to "btn-primary"
+    $(this).removeClass("btn-primary");
+    $(this).addClass("btn-danger");
+    $(this).html("<i class='fas fa-minus'></i> Quitar otro");
+    
+
+    let html = "<input type='text' value='Otro (especificar)' class='form-control' disabled>";
+    $(this).before(html);
+})
 
 $(document).on("keyup", ".nombrePregunta", function() {
     const value = $(this).val();
