@@ -32,7 +32,7 @@ class ControllerEncuestas{
             foreach($formulario as $key => $value){
                 // Write titles of questions
                 foreach($value["preguntas"] as $key2 => $value2){
-                    array_push($data, $value2["pregunta"]);
+                    array_push($data, $value2["nombre"]);
                 }
             }
 

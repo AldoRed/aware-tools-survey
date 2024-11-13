@@ -27,15 +27,16 @@ include "views/overall/encuesta/formularios/centroConCapacidades.php";
 include "views/overall/encuesta/formularios/demandaDeCapacidades.php";
 // include "views/overall/encuesta/formularios/usoDeFondos.php";
 
-$secciones = ControllerSecciones::ctrMostrarSecciones("encuesta_id", $encuesta["id"]);
+$secciones = JSON_decode($encuesta["secciones"], true);
 
-if(sizeof($secciones) == 0){
+if(!$secciones){
     // Si no hay secciones, mostrar un recuadro de error con un boton de ir a editar encuesta
     echo '
     <div class="alert alert-danger" role="alert">
         No se han encontrado secciones para esta encuesta. Por favor, edite la encuesta y agregue secciones. <a href="'.$url.'admin/editar-encuesta/'.$encuesta["slug"].'">Editar encuesta</a>
     </div>
     ';
+    return;
 }
 
 if(!isset($rutas[1])){
@@ -47,9 +48,7 @@ if(!isset($rutas[1])){
     
 }
 
-var_dump($secciones);
-
-$formulario = $formulario[$encuesta["id"]];
+$formulario = $secciones;
 
 ?>
 
@@ -155,7 +154,7 @@ $formulario = $formulario[$encuesta["id"]];
         left:0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(<?php echo $url . $encuesta["imagen"] ?>);
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('<?php echo $url . $encuesta["imagen"] ?>');
         background-size:cover;
         clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
         z-index:-1;
@@ -171,7 +170,7 @@ foreach($formulario as $keySeccion => $seccion){
     
     echo '
     <section class="questions container seccion_'.$keySeccion.' noDisplay">
-        <h2 class="subtitle">'.$seccion["seccion"].'</h2>
+        <h2 class="subtitle">'.$seccion["nombre"].'</h2>
         <p class="questions__paragraph">Por favor responda las siguientes preguntas</p>
     ';
     
@@ -179,11 +178,11 @@ foreach($formulario as $keySeccion => $seccion){
         
         echo '
         <fieldset class="container" style="text-align:left;">
-            <h3>'.($keyPregunta+1) .'. '. $pregunta["pregunta"].'</h3>
+            <h3>'.($keyPregunta+1) .'. '. $pregunta["nombre"].'</h3>
         ';
 
         // If the question is obligatory
-        if($pregunta["obligatorio"]){
+        if($pregunta["obligatoria"]){
             echo '<p style="color:red; font-size: 8px; margin-bottom: 3px;">(Obligatorio)</p>';
             $required = "required";
         }else{
