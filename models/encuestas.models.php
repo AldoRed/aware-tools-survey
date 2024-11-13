@@ -32,6 +32,22 @@ class ModelEncuestas{
 
     }
 
+    static public function mdlMostrarEncuestasNoAprobadas($tabla, $token){
+
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE token = :token");
+
+        $stmt -> bindParam(":token", $token, PDO::PARAM_STR);
+
+        $stmt -> execute();
+
+        return $stmt -> fetch();
+
+        $stmt -> close();
+
+        $stmt = null;
+
+    }
+
     static public function mdlCrearEncuesta($tabla, $datos){
 
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(token, nombre, slug, descripcion, imagen, secciones, creador) VALUES (:token, :nombre, :slug, :descripcion, :imagen, :secciones, :correoCreador)");
@@ -59,6 +75,29 @@ class ModelEncuestas{
         $stmt = null;
     }
 
+    static public function mdlCrearEncuestaAprobada($tabla, $datos){
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, slug, descripcion, imagen, secciones, administradores) VALUES (:nombre, :slug, :descripcion, :imagen, :secciones, :administradores)");
+
+        $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt -> bindParam(":slug", $datos["slug"], PDO::PARAM_STR);
+        $stmt -> bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+        $stmt -> bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+        $stmt -> bindParam(":secciones", $datos["secciones"], PDO::PARAM_STR);
+        $stmt -> bindParam(":administradores", $datos["administradores"], PDO::PARAM_STR);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+    }
+
     static public function mdlCheckearSlug($tabla, $slug){
 
         $stmt = Conexion::conectar()->prepare("SELECT slug FROM $tabla WHERE slug = :slug");
@@ -80,6 +119,27 @@ class ModelEncuestas{
 
         $stmt -> bindParam(":admins", $datos["admins"], PDO::PARAM_STR);
         $stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
+    static public function mdlEliminarEncuestaNoAprobada($tabla, $token){
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE token = :token LIMIT 1");
+
+        $stmt -> bindParam(":token", $token, PDO::PARAM_STR);
 
         if($stmt -> execute()){
 

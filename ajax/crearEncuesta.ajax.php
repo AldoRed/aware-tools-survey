@@ -41,6 +41,8 @@ class CrearEncuestaAjax{
         
         move_uploaded_file($this->imagen["tmp_name"], $ruta);
 
+        $ruta = "views/img/encuestas/".$this->slug.$this->imagen["name"];
+
         $datos = array(
             "token" => $token,
             "nombre" => $this->nombre,
