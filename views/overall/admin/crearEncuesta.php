@@ -5,6 +5,7 @@
             <div class="form-group">
                 <label for="nombreEncuesta">Nombre de la encuesta</label>
                 <input type="text" class="form-control" name="nombreEncuesta" placeholder="Ejemplo: Encuesta de ciberseguridad" required>
+                <span class="text-danger" id="slugError"></span>
             </div>
 
             <div class="form-group">
@@ -19,57 +20,85 @@
 
             <div class="form-group">
                 <label for="imagenEncuesta">Imagen de la encuesta</label>
-                <small>Se recomienda una imagen de 250x250px</small>
+                <small>Se recomienda una con mismo ratio entre encuestas que se quieren realizar</small>
                 <input type="file" class="form-control" name="imagenEncuesta">
             </div>
 
             <div class="form-group">
-                <label for="seccionesEncuesta">Secciones de la encuesta</label>
-                <textarea class="form-control" name="seccionesEncuesta" rows="20" required>
-[
-    [
-        "seccion" => "SECCIÓN EJEMPLO: Preguntas demostrativas",
-        "preguntas" => [
-            [
-                "pregunta" => "¿Cuál es su experiencia en ciberseguridad? *",
-                "tipo" => "radio",
-                "alternativas" => [
-                    "Menos de 2 años",
-                    "Entre 2 y 5 años",
-                    "Más de 5 años"
-                ],
-                "obligatorio" => true
-            ],
-            [
-                "pregunta" => "Mencione brevemente su área de especialización",
-                "tipo" => "text",
-                "alternativas" => [],
-                "obligatorio" => false
-            ]
-        ]
-    ],
-    [
-        "seccion" => "SECCIÓN 2 EJEMPLO: Preguntas demostrativas",
-        "preguntas" => [
-            [
-                "pregunta" => "Pregunta de seleccion multiple *",
-                "tipo" => "radioMultiple",
-                "alternativas" => [
-                    "Opción 1",
-                    "Opción 2",
-                    "Opción 3"
-                ],
-                "obligatorio" => true
-            ],
-            [
-                "pregunta" => "Pregunta con respuesta de solo texto",
-                "tipo" => "text",
-                "alternativas" => [],
-                "obligatorio" => false
-            ]
-        ]
-    ]
-]</textarea>
+                <!-- Crear secciones de la encuesta -->
+                <table id="secciones" class="table-responsive table">
+                <button type="button" class="btn btn-primary" id="crearSeccion">Nueva sección</button>
+                    <thead>
+                        <tr>
+                            <td>Sección</td>
+                            <td>Preguntas</td>
+                        </tr>
+                    </thead>
+
+                    <!-- Ejemplo para maquetar secciones -->
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" name="seccion[]" placeholder="Ejemplo: Información básica" required>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success" onclick="crearPregunta(this)">Nueva pregunta</button>
+                                <table class="table table-responsive" id="preguntasSeccion1">
+                                    <thead>
+                                        <tr>
+                                            <td>Pregunta</td>
+                                            <td>Tipo</td>
+                                            <td>Alternativas</td>
+                                            <td>Obligatorio</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="form-control" name="pregunta[0][]" placeholder="Ejemplo: ¿Cuál es su experiencia en ciberseguridad? *" required>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" name="tipo[0][]">
+                                                    <option value="radio">Selección única</option>
+                                                    <option value="radioMultiple">Selección múltiple</option>
+                                                    <option value="text">Texto</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="alternativa[0][]" placeholder="Ejemplo: Menos de 2 años">
+                                                <input type="text" class="form-control" name="alternativa[0][]" placeholder="Ejemplo: Entre 2 y 5 años">
+                                                <input type="text" class="form-control" name="alternativa[0][]" placeholder="Ejemplo: Más de 5 años">
+                                                <i class="fas fa-plus agregarAlternativaInput"></i>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" value="true">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="form-control" name="pregunta[0][]" placeholder="Ejemplo: Mencione brevemente su área de especialización">
+                                            </td>
+                                            <td>
+                                                <select class="form-control" name="tipo[0][]">
+                                                    <option value="radio">Selección única</option>
+                                                    <option value="radioMultiple">Selección múltiple</option>
+                                                    <option value="text">Texto</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control">
+                                                <i class="fas fa-plus agregarAlternativaInput"></i>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="obligatorio[0][]" value="true">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- Correo del creador de la encuesta -->
@@ -82,6 +111,8 @@
         </form>
     </div>
 </secion>
+
+<script src="<?php echo $url ?>views/js/crearEncuesta.js"></script>
 
 <style>
 table {
