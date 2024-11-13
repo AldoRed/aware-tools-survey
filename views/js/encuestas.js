@@ -59,7 +59,7 @@ $(".siguiente").click(function(){
 $(".submitEncuesta").click(function(){
 
     // Validate the last section
-    let inputs = $(this).find("input");
+    let inputs = $(this).parent().find("input");
 
     if(!checkInput(inputs)){
         Swal.fire({
