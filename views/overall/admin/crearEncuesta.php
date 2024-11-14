@@ -109,7 +109,7 @@
     </div>
 </secion>
 
-<script src="<?php echo $url ?>views/js/crearEncuesta.js"></script>
+<script src="<?php echo $url ?>views/js/crearEncuesta.js?v=2.0"></script>
 
 <style>
 table {

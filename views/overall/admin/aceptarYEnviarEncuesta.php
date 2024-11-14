@@ -107,4 +107,4 @@ textarea {
 }
 </style>
 
-<script src="<?php echo $url ?>views/js/aceptarYEnviarEncuesta.js?v=1.0"></script>
+<script src="<?php echo $url ?>views/js/aceptarYEnviarEncuesta.js?v=2.0"></script>

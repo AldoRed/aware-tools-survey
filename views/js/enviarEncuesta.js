@@ -60,7 +60,6 @@ $(".enviarEmails").click(function() {
     }
     
     const mensaje = $("textarea[name='mensaje']").val();
-    alert("Mensaje: " + mensaje);
 
     if (!mensaje) {
         Swal.fire({

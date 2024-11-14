@@ -52,7 +52,9 @@ $(".publicarEncuesta").click(function(){
             icon: 'success',
             showConfirmButton: false,
             timer: 1500
-        })
+        }).then(() => {
+            window.location.href = url + "admin";
+        });
 
         source.close();
     });
