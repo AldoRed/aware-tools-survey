@@ -135,6 +135,28 @@ class ModelEncuestas{
         $stmt = null;
     }
 
+    static public function mdlEditarEncuesta($tabla, $id, $item, $valor){
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item = :$item WHERE id = :id");
+
+        $stmt -> bindParam(":$item", $valor, PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $id, PDO::PARAM_INT);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
     static public function mdlEliminarEncuestaNoAprobada($tabla, $token){
 
         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE token = :token LIMIT 1");
