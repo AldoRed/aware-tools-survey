@@ -1,30 +1,41 @@
-<section class="encuestasDisponibles">
-<div class="container">
-<h2 class="col-xs-12">Las encuestas disponibles son:</h2>
-<div class="row container">
 <?php
-foreach ($encuestas as $key => $value) {
 
-    if(isset($_SESSION["encuestas"][$value["id"]])){
-        $estado = "Completada";
-    }else{
-        $estado = "No respondida";
-    }
+if(isset($rutas[1])){
+    include "encuesta/disponibles.php";
 
-    // Create cards with the name of the survey and a link to it
-    echo '
-    <div class="card col-xs-12 col-sm-6 col-md-4">
-      <img src="'.$url.$value["imagen"].'" class="card-img-top" alt="'.$value["nombre"].'">
-      <div class="card-body">
-        <h5 class="card-title">'.$value["nombre"].'</h5>
-        <p class="card-text">'.$estado.'</p>
-        <a href="'.$url.$value["slug"].'" class="btn-card">Entrar</a>
-      </div>
-    </div>';
+    return;
 }
 
 ?>
-</div>
 
-</div>
-</section>
+
+
+<!-- Contenido centrado -->
+<main class="flex-fill d-flex align-items-center justify-content-center text-center" style="height: 100vh;">
+    <div class="centrar-contenido">
+        <h1 class="text-primary">Bienvenido/a</h1>
+        <p class="mb-4">Bienvenido/a a la plataforma de encuestas de Aware Tools. Aquí podrás responder, enviar, crear encuestas y ver resultados.</p>
+        <div class="container" style="margin-top: 20px;">
+          <!-- Boton para crear encuesta -->
+          <a href="<?php echo $url ?>admin/crear-encuesta" style="margin-bottom: 5px;" class="btn btn-success">Crear una encuesta</a>
+
+          <!-- Boton para visualizar encuestas -->
+          <a href="<?php echo $url ?>admin/visualizar-encuestas" style="margin-bottom: 5px;" class="btn btn-primary">Encuestas Aprobadas</a>
+
+          <!-- Boton para solicitar administrar encuestas -->
+          <a href="<?php echo $url ?>admin/solicitar-administrar-encuestas" style="margin-bottom: 5px;" class="btn btn-primary">Solicitar administrar encuestas</a>
+
+          <!-- Boton para enviar encuestas -->
+          <a href="<?php echo $url ?>admin/enviar-encuestas" style="margin-bottom: 5px;" class="btn btn-primary">Enviar encuestas</a>
+        </div>
+    </div>
+</main>
+
+<style>
+.centrar-contenido{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
