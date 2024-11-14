@@ -48,6 +48,22 @@ class ModelEncuestas{
 
     }
 
+    static public function mdlMostrarSolicitudesEnviarEncuesta($tabla, $token){
+
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE token = :token");
+
+        $stmt -> bindParam(":token", $token, PDO::PARAM_STR);
+
+        $stmt -> execute();
+
+        return $stmt -> fetchAll();
+
+        $stmt -> close();
+
+        $stmt = null;
+
+    }
+
     static public function mdlCrearEncuesta($tabla, $datos){
 
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(token, nombre, slug, descripcion, imagen, secciones, creador) VALUES (:token, :nombre, :slug, :descripcion, :imagen, :secciones, :correoCreador)");
@@ -106,6 +122,28 @@ class ModelEncuestas{
         $stmt -> bindParam(":emails", $emails, PDO::PARAM_STR);
         $stmt -> bindParam(":mensaje", $mensaje, PDO::PARAM_STR);
         $stmt -> bindParam(":encuesta", $encuesta, PDO::PARAM_INT);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
+    static public function mdlActualizarTokenHabilitados($tabla, $id, $tokenHabilitados){
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET token_habilitados = :tokenHabilitados WHERE id = :id");
+
+        $stmt -> bindParam(":tokenHabilitados", $tokenHabilitados, PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $id, PDO::PARAM_INT);
 
         if($stmt -> execute()){
 
