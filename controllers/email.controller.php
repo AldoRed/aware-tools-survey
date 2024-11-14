@@ -169,4 +169,33 @@ class ControllerEmail{
 
         ControllerEmail::ctrEnviarCorreo($emailAdmin, "Administrador", $asunto, $mensaje);
     }
+
+    static public function ctrEnviarEncuesta($correo, $token, $encuestas, $mensajeCorreo){
+
+        $url = Ruta::ctrRuta();
+
+        $asunto = "Encuesta Aware Tools Survey";
+        $mensaje = self::templateHead().'
+        
+            <div class="content">
+                <p>Hola, se ha solicitado el envío de la encuesta <span class="highlight">'.$encuestas[0]["nombre"].'</span>.</p>
+                <p>El mensaje que se enviará es el siguiente:</p>
+                <p><span class="highlight">Mensaje:</span> '.$mensajeCorreo.'</p>
+                <ul class="encuestas-list">';
+                
+                foreach ($encuestas as $key => $encuesta) {
+            
+                    $mensaje .= '<li>'.($key + 1).'. '.$encuesta["nombre"].'</li>';
+            
+                }
+
+        $mensaje .= '</ul>
+                <p>Para responder a la encuesta, haga clic en el siguiente enlace:</p>
+            </div>
+            <div class="button-container">
+                <a href="'.$url.$encuestas[0]["slug"].'/'.$token.'" class="accept-button">Responder encuesta</a>
+            </div>' . self::templateFooter();
+
+        ControllerEmail::ctrEnviarCorreo($correo, "Usuario", $asunto, $mensaje);
+    }
 }

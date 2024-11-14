@@ -20,6 +20,15 @@ class ControllerEncuestas{
         return $respuesta;
     }
 
+    static public function ctrMostrarSolicitudesEnviarEncuesta($token){
+
+        $tabla = "solicitudes_enviar_encuesta";
+
+        $respuesta = ModelEncuestas::mdlMostrarSolicitudesEnviarEncuesta($tabla, $token);
+
+        return $respuesta;
+    }
+
     static public function ctrCrearCSV($nombre, $formulario, $post){
 
         if(!file_exists("views/docs/encuestas/".$nombre.".csv")){
@@ -49,6 +58,15 @@ class ControllerEncuestas{
         $tabla = "solicitudes_enviar_encuesta";
 
         $respuesta = ModelEncuestas::mdlGuardarSolicitudEnviarEncuesta($tabla, $token, $emails, $mensaje, $encuesta);
+
+        return $respuesta;
+    }
+
+    static public function ctrActualizarTokenHabilitados($id, $tokenHabilitados){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlActualizarTokenHabilitados($tabla, $id, $tokenHabilitados);
 
         return $respuesta;
     }

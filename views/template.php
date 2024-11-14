@@ -102,6 +102,8 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
             include "overall/admin/aceptarSolicitudAdministrarEncuestas.php";
         }elseif($ruta == "aceptarSolicitudNuevaEncuesta" && isset($rutas[1])){
             include "overall/admin/aceptarSolicitudNuevaEncuesta.php";
+        }elseif($ruta == "aceptar-y-enviar-encuesta" && isset($rutas[1])){
+            include "overall/admin/aceptarYEnviarEncuesta.php";
         }elseif(!isset($_SESSION["consentimiento"]) || $_SESSION["consentimiento"] == false || $ruta == "acuerdo"){
             include "overall/encuesta/acuerdo.php";
         }
