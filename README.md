@@ -1,5 +1,7 @@
 # Aware Tools Survey
 
+<img width="1439" alt="image" src="https://github.com/user-attachments/assets/76145f45-5223-450e-b95c-48884cecc247">
+
 **Aware Tools Survey** is a PHP-based platform designed to create and manage surveys securely and anonymously. The platform ensures that surveys are only accessible to the intended recipients, protecting their privacy and respecting their voluntary participation.
 
 ## Overview
