@@ -112,6 +112,15 @@ class ControllerEncuestas{
         return $respuesta;
     }
 
+    static public function ctrEditarEncuesta($id, $item, $valor){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlEditarEncuesta($tabla, $id, $item, $valor);
+
+        return $respuesta;
+    }
+
     static public function ctrEliminarEncuestaNoAprobada($token){
 
         $tabla = "encuestas_no_aprobadas";
