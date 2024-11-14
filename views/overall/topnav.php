@@ -1,4 +1,4 @@
-<div class="nav" style="background-color: #f9f9f9;">
+<div style="background-color: #f9f9f9;">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6" style="display:flex;">
