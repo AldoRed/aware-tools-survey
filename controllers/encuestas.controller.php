@@ -44,6 +44,15 @@ class ControllerEncuestas{
         self::ctrGuardarRespuestas($nombre, $formulario, $post);
     }
 
+    static public function ctrGuardarSolicitudEnviarEncuesta($token, $emails, $mensaje, $encuesta){
+
+        $tabla = "solicitudes_enviar_encuesta";
+
+        $respuesta = ModelEncuestas::mdlGuardarSolicitudEnviarEncuesta($tabla, $token, $emails, $mensaje, $encuesta);
+
+        return $respuesta;
+    }
+
     static public function ctrGuardarRespuestas($nombre, $formulario, $post){
             
         $file = fopen("views/docs/encuestas/".$nombre.".csv", "a");
