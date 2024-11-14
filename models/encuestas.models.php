@@ -98,6 +98,30 @@ class ModelEncuestas{
 
     }
 
+    static public function mdlGuardarSolicitudEnviarEncuesta($tabla, $token, $emails, $mensaje, $encuesta){
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(token, emails, mensaje, encuesta) VALUES (:token, :emails, :mensaje, :encuesta)");
+
+        $stmt -> bindParam(":token", $token, PDO::PARAM_STR);
+        $stmt -> bindParam(":emails", $emails, PDO::PARAM_STR);
+        $stmt -> bindParam(":mensaje", $mensaje, PDO::PARAM_STR);
+        $stmt -> bindParam(":encuesta", $encuesta, PDO::PARAM_INT);
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
     static public function mdlCheckearSlug($tabla, $slug){
 
         $stmt = Conexion::conectar()->prepare("SELECT slug FROM $tabla WHERE slug = :slug");

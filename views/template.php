@@ -74,6 +74,8 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     <script src="<?php echo $url ?>views/js/plugins/bootstrap.min.js"></script>
     <!-- SweetAlert2 -->
     <script src="<?php echo $url ?>views/js/plugins/sweetalert.min.js"></script>
+    <!-- XLSX -->
+    <script src="<?php echo $url ?>views/js/plugins/xlsx.mini.min.js"></script>
 </head>
 <body style="background: #f9f9f9;">
     <?php  
