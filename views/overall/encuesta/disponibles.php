@@ -6,7 +6,11 @@ $disponibles = array();
 
 foreach($encuestas as $key => $value){
     $tokenHabilitados = $value["token_habilitados"] ? JSON_decode($value["token_habilitados"], true) : array();
+    $tokenRespuestas = $value["respuestas"] ? JSON_decode($value["respuestas"], true) : array();
     if(in_array($token, $tokenHabilitados)){
+        array_push($disponibles, $value);
+    }
+    if(in_array($token, $tokenRespuestas)){
         array_push($disponibles, $value);
     }
 }
