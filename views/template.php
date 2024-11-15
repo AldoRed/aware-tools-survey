@@ -60,7 +60,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.4">
+    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.5">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $url ?>views/css/plugins/bootstrap.min.css">
     <!-- Font Awesome -->

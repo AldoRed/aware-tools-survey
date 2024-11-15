@@ -30,12 +30,3 @@ if(isset($rutas[1])){
         </div>
     </div>
 </main>
-
-<style>
-.centrar-contenido{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>

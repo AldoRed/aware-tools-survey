@@ -36,6 +36,13 @@ input{
 	display:none;
 }
 
+.centrar-contenido{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 .seleccionado{
     background-color: #4680f4;
     color: white;
