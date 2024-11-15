@@ -25,9 +25,9 @@
         </div>
 
         <div class="form-group">
+            <label>Crear encuesta</label>
             <!-- Crear secciones de la encuesta -->
             <table id="secciones" class="table-responsive table">
-            <button type="button" class="btn btn-primary" id="btnCrearSeccion">Nueva sección</button>
                 <thead>
                     <tr>
                         <td>Sección</td>
@@ -42,7 +42,6 @@
                             <input type="text" class="form-control" placeholder="Ejemplo: Información básica" value="SECCIÓN A: Preguntas relativas a la investigación realizada">
                         </td>
                         <td>
-                            <button type="button" class="btn btn-success agregarNuevaPregunta">Nueva pregunta</button>
                             <table class="table table-responsive">
                                 <thead>
                                     <tr>
@@ -93,10 +92,14 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <button type="button" class="btn btn-success agregarNuevaPregunta">Nueva pregunta</button>
                         </td>
                     </tr>
                 </tbody>
+                
             </table>
+            <button type="button" class="btn btn-primary" style="float:right;" id="btnCrearSeccion">Nueva sección</button>
+            </br></br></br></br></br>
         </div>
 
         <!-- Correo del creador de la encuesta -->

@@ -71,9 +71,8 @@ function validarCorreo(correo){
 $("#btnCrearSeccion").on("click", function() {
     // Agregar un nuevo td al final de la tabla tbody de secciones
     let html = "<tr>";
-    html += "<td><input type='text' class='form-control' required></td>";
+    html += "<td><input type='text' class='form-control' placeholder='Nombre sección' required></td>";
     html += "<td>";
-    html += '<button type="button" class="btn btn-success agregarNuevaPregunta">Nueva pregunta</button>';
     html += "<table class='table table-responsive'>";
     html += "<thead>";
     html += "<tr>";
@@ -86,6 +85,7 @@ $("#btnCrearSeccion").on("click", function() {
     html += "<tbody>";
     html += "</tbody>";
     html += "</table>";
+    html += '<button type="button" class="btn btn-success agregarNuevaPregunta" style="margin-right: 5px;">Nueva pregunta</button>';
     html += "</td>";
     html += "</tr>";
 
@@ -98,7 +98,7 @@ $("#btnCrearSeccion").on("click", function() {
 $(document).on("click", ".agregarNuevaPregunta", function () {
     // Agregar un nuevo td al final de la tabla tbody dentro de la sección
     let html = "<tr>";
-    html += "<td><input type='text' class='form-control nombrePregunta'></td>";
+    html += "<td><input type='text' class='form-control nombrePregunta' placeholder='Pregunta'></td>";
     html += '<td>\
                 <select class="form-control tipoPregunta">\
                     <option value="">Seleccione...</option>\
