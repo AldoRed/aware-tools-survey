@@ -33,10 +33,19 @@ class ControllerAdministracion {
 
             if($_POST["pin"] == $_ENV["PIN_ADMINISTRACION"]){
                 $_SESSION["admin"] = "ok";
-
+                $url = Ruta::ctrRuta();
                 echo '<script>
+                    const url = "'.$url.'admin";
 
-                    window.reload();
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡Éxito!",
+                        text: "¡PIN correcto!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(function(){
+                        window.location = url;
+                    });
 
                 </script>';
 
