@@ -26,4 +26,35 @@ class ControllerAdministracion {
 
         return $respuesta;
     }
+
+    static public function ctrIngresoPin(){
+
+        if(isset($_POST["pin"]) && $_POST["pin"] != ""){
+
+            if($_POST["pin"] == $_ENV["PIN_ADMINISTRACION"]){
+                $_SESSION["admin"] = "ok";
+
+                echo '<script>
+
+                    window.reload();
+
+                </script>';
+
+            }else{
+
+                echo '<script>
+                
+                    Swal.fire({
+                        icon: "error",
+                        title: "¡Error!",
+                        text: "¡El PIN es incorrecto!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    </script>';
+
+            }
+
+        }
+    }
 }

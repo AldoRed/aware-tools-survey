@@ -13,6 +13,13 @@
 </div>
 
 <?php
+// Admin pin acceso
+if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != "ok"){
+
+    include "views/overall/admin/adminPin.php";
+
+    return;
+}
 
 // Visualizar encuestas
 if(!isset($rutas[1]) || $rutas[1] == "visualizar-encuestas"){
