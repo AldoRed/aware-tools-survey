@@ -127,7 +127,7 @@ $(document).on("change", ".tipoPregunta", function() {
 
     if (tipo == "radio" || tipo == "radioMultiple") {
         html += '<input type="text" class="form-control" >';
-        html += '<button type="button" class="btn btn-success agregarNuevaAlternativa"><i class="fas fa-plus"></i></button>';
+        html += '<button type="button" class="btn btn-success agregarNuevaAlternativa" style="margin-right: 5px;"><i class="fas fa-plus"></i></button>';
         html += '<button type="button" class="btn btn-primary agregarOtro" accion="agregar"><i class="fas fa-plus"></i> Agregar otro</button>';
     }
 
