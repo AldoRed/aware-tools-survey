@@ -86,6 +86,7 @@ $("#btnCrearSeccion").on("click", function() {
     html += "</tbody>";
     html += "</table>";
     html += '<button type="button" class="btn btn-success agregarNuevaPregunta" style="margin-right: 5px;">Nueva pregunta</button>';
+    html += '<button type="button" class="btn btn-default duplicarUltimaPregunta">Duplicar última pregunta</button>';
     html += "</td>";
     html += "</tr>";
 
@@ -112,6 +113,12 @@ $(document).on("click", ".agregarNuevaPregunta", function () {
     html += "</tr>";
 
     $(this).closest("tr").find("tbody").append(html);
+});
+
+$(document).on("click", ".duplicarUltimaPregunta", function() {
+    const tbody = $(this).closest("tr").find("tbody");
+    const tr = tbody.find("tr:last-child").clone();
+    tbody.append(tr);
 });
 
 $(document).on("change", ".tipoPregunta", function() {

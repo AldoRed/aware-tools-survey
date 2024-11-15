@@ -93,6 +93,7 @@
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-success agregarNuevaPregunta">Nueva pregunta</button>
+                            <button type="button" class="btn btn-default duplicarUltimaPregunta">Duplicar última pregunta</button>
                         </td>
                     </tr>
                 </tbody>
