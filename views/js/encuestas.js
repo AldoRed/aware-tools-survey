@@ -53,6 +53,18 @@ $(".siguiente").click(function(){
             timer: 1200
           });
     }
+
+});
+
+// function to go back to the previous section
+$(".anterior").click(function(){
+    const anterior = parseInt($(this).attr("anterior"));
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
+    // Put background green
+    $(".seccion_"+(anterior+1)).hide();
+    $(".seccion_"+(anterior)).slideDown();
 });
 
 // function submit Form

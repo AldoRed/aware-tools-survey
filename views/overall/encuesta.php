@@ -241,6 +241,18 @@ foreach($formulario as $keySeccion => $seccion){
     }
 
     echo '</br></br>';
+
+    // Botón de anterior
+    if($keySeccion > 0){
+        echo '
+        <p class="anterior" anterior="'.($keySeccion-1).'">
+            <button type="button" class="btn">
+                Anterior
+            </button>
+        <p></br>
+        ';
+    }
+
     // Botón de siguiente
     if($keySeccion < count($formulario)-1){
         echo '

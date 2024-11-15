@@ -128,7 +128,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
 	?>
 <input type="hidden" id="url" value="<?php echo $url ?>">
-<script src="<?php echo $url ?>views/js/encuestas.js?v=3.5"></script>
+<script src="<?php echo $url ?>views/js/encuestas.js?v=3.6"></script>
 <script src="<?php echo $url ?>views/js/consentimiento.js?v=2.1"></script>
 <script src="<?php echo $url ?>views/js/email.js?v=2.1"></script>
 
