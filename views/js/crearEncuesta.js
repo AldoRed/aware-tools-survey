@@ -117,7 +117,14 @@ $(document).on("click", ".agregarNuevaPregunta", function () {
 
 $(document).on("click", ".duplicarUltimaPregunta", function() {
     const tbody = $(this).closest("tr").find("tbody");
-    const tr = tbody.find("tr:last-child").clone();
+    let tr = tbody.find("tr:last-child")
+
+    const tipo = tr.find("td:eq(1) select").val();
+
+    tr = tr.clone();
+
+    tr.find("td:eq(1) select").val(tipo);
+
     tbody.append(tr);
 });
 
