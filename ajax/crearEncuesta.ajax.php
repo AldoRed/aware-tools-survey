@@ -16,6 +16,7 @@ class CrearEncuestaAjax{
     public $descripcion;
     public $imagen;
     public $secciones;
+    public $cronometro;
     public $correoCreador;
     public $slug;
 
@@ -50,6 +51,7 @@ class CrearEncuestaAjax{
             "imagen" => $ruta,
             "descripcion" => $this->descripcion,
             "secciones" => $this->secciones,
+            "cronometro" => $this->cronometro,
             "correoCreador" => $this->correoCreador
         );
 
@@ -188,6 +190,7 @@ if(isset($_POST["metodo"])){
         $crearEncuesta -> descripcion = $_POST["descripcionEncuesta"];
         $crearEncuesta -> imagen = $_FILES["imagenEncuesta"];
         $crearEncuesta -> secciones = $_POST["secciones"];
+        $crearEncuesta -> cronometro = $_POST["cronometro"];
         $crearEncuesta -> correoCreador = $_POST["correoCreador"];
         $crearEncuesta -> ajaxCrearEncuesta();
 

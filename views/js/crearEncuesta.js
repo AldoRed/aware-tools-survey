@@ -186,6 +186,7 @@ $("#enviarCrearEncuesta").click(function() {
     const slugEncuesta = $("input[name='slugEncuesta']").val();
     const descripcionEncuesta = $("textarea[name='descripcionEncuesta']").val();
     const url = $("#url").val();
+    const cronometro = $("#cronometro").val();
     const correoCreador = $("input[name='correoCreador']").val();
 
     if (nombreEncuesta == "" || slugEncuesta == "" || descripcionEncuesta == "") {
@@ -250,6 +251,7 @@ $("#enviarCrearEncuesta").click(function() {
     data.append("slugEncuesta", slugEncuesta);
     data.append("descripcionEncuesta", descripcionEncuesta);
     data.append("imagenEncuesta", imagenEncuesta);
+    data.append("cronometro", cronometro);
     data.append("correoCreador", correoCreador);
     data.append("secciones", JSON.stringify(secciones));
 
