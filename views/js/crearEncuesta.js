@@ -106,6 +106,7 @@ $(document).on("click", ".agregarNuevaPregunta", function () {
                     <option value="radio">Selección única</option>\
                     <option value="radioMultiple">Selección múltiple</option>\
                     <option value="text">Texto</option>\
+                    <option value="textArea">Texto largo</option>\
                 </select>\
             </td>';
     html += "<td></td>";
