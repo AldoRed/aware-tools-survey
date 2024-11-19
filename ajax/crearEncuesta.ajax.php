@@ -170,6 +170,34 @@ class CrearEncuestaAjax{
         echo $respuesta;
 
     }
+
+    public function ajaxEditarEncuesta(){
+
+        if($this->imagen != null){
+            // Guardar imagen en el servidor
+            $ruta = "../views/img/encuestas/".$this->slug.$this->imagen["name"];
+            
+            move_uploaded_file($this->imagen["tmp_name"], $ruta);
+
+            $ruta = "views/img/encuestas/".$this->slug.$this->imagen["name"];
+        }else{
+            $ruta = null;
+        }
+
+        $datos = array(
+            "nombre" => $this->nombre,
+            "slug" => $this->slug,
+            "imagen" => $ruta,
+            "descripcion" => $this->descripcion,
+            "secciones" => $this->secciones,
+            "cronometro" => $this->cronometro
+        );
+
+        $respuesta = ControllerEncuestas::ctrEditarEncuestaPreguntas($datos);
+
+        echo $respuesta;
+
+    }
 }
 
 if(isset($_POST["metodo"])){
@@ -193,6 +221,23 @@ if(isset($_POST["metodo"])){
         $crearEncuesta -> cronometro = $_POST["cronometro"];
         $crearEncuesta -> correoCreador = $_POST["correoCreador"];
         $crearEncuesta -> ajaxCrearEncuesta();
+
+    }
+
+    if($_POST["metodo"] == "editarEncuesta"){
+
+        $editarEncuesta = new CrearEncuestaAjax();
+        $editarEncuesta -> nombre = $_POST["nombreEncuesta"];
+        $editarEncuesta -> slug = $_POST["slugEncuesta"];
+        $editarEncuesta -> descripcion = $_POST["descripcionEncuesta"];
+        if(isset($_FILES["imagenEncuesta"])){
+            $editarEncuesta -> imagen = $_FILES["imagenEncuesta"];
+        }else{
+            $editarEncuesta -> imagen = null;
+        }
+        $editarEncuesta -> secciones = $_POST["secciones"];
+        $editarEncuesta -> cronometro = $_POST["cronometro"];
+        $editarEncuesta -> ajaxEditarEncuesta();
 
     }
 }

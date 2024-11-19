@@ -74,6 +74,15 @@ class ControllerEncuestas{
         return $respuesta;
     }
 
+    static public function ctrEditarEncuestaPreguntas($datos){
+
+        $tabla = "encuestas";
+
+        $respuesta = ModelEncuestas::mdlEditarEncuestaPreguntas($tabla, $datos);
+
+        return $respuesta;
+    }
+
     static public function ctrGuardarRespuestas($nombre, $formulario, $post){
             
         $file = fopen("views/docs/encuestas/".$nombre.".csv", "a");
