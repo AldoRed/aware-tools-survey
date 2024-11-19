@@ -16,6 +16,7 @@ class CrearEncuestaAjax{
     public $descripcion;
     public $imagen;
     public $secciones;
+    public $cronometro;
     public $correoCreador;
     public $slug;
 
@@ -50,6 +51,7 @@ class CrearEncuestaAjax{
             "imagen" => $ruta,
             "descripcion" => $this->descripcion,
             "secciones" => $this->secciones,
+            "cronometro" => $this->cronometro,
             "correoCreador" => $this->correoCreador
         );
 
@@ -141,7 +143,7 @@ class CrearEncuestaAjax{
                 <div class="email-container">
                     <div class="header">
                         <img src="'.$url .'views/img/logo.png" alt="Aware Tools Survey Icon">
-                        <h1>Solicitud Aprobada</h1>
+                        <h1>Nueva Encuesta</h1>
                     </div>
                     <div class="content">
                         <p>Estimado/a <span class="highlight">Administrador/a</span>,</p>
@@ -188,6 +190,7 @@ if(isset($_POST["metodo"])){
         $crearEncuesta -> descripcion = $_POST["descripcionEncuesta"];
         $crearEncuesta -> imagen = $_FILES["imagenEncuesta"];
         $crearEncuesta -> secciones = $_POST["secciones"];
+        $crearEncuesta -> cronometro = $_POST["cronometro"];
         $crearEncuesta -> correoCreador = $_POST["correoCreador"];
         $crearEncuesta -> ajaxCrearEncuesta();
 
