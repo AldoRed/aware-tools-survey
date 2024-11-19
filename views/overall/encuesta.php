@@ -163,8 +163,18 @@ $formulario = $secciones;
 </style>
 
 <form role="form" method="post" name="encuesta_form">
-    
+
+<div id="cronometro-container" style="display: none;">
+    <i id="cronometro-icon" class="fas fa-clock"></i>
+    <span id="cronometro">00:00</span>
+</div>
+
 <?php
+
+// Cronometro
+echo '
+<input type="hidden" name="cronometro" value="'.$encuesta["cronometro"].'">
+';
 
 foreach($formulario as $keySeccion => $seccion){
     
