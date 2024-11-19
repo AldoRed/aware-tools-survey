@@ -28,6 +28,7 @@ $datos = array("nombre" => $respuesta["nombre"],
                 "descripcion" => $respuesta["descripcion"],
                 "imagen" => $respuesta["imagen"],
                 "secciones" => $respuesta["secciones"],
+                "cronometro" => $respuesta["cronometro"],
                 "administradores" => '["'.$respuesta["creador"].'"]');
 
 $respuestaEncuesta = ControllerEncuestas::ctrCrearEncuestaAprobada($datos);
