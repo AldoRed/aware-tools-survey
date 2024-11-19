@@ -193,7 +193,7 @@ class ControllerEmail{
                 <p>Para responder a la encuesta, haga clic en el siguiente enlace:</p>
             </div>
             <div class="button-container">
-                <a href="'.$url.$encuestas[0]["slug"].'/'.$token.'" class="accept-button">Responder encuesta</a>
+                <a href="'.$url.'inicio/'.$token.'" class="accept-button">Responder encuestas</a>
             </div>' . self::templateFooter();
 
         ControllerEmail::ctrEnviarCorreo($correo, "Usuario", $asunto, $mensaje);
