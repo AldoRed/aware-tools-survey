@@ -45,6 +45,9 @@ class ControllerEncuestas{
                 }
             }
 
+            // Write chronometer header
+            array_push($data, "Cronómetro");
+
             fputcsv($file, $data, ";");
 
             fclose($file);
@@ -97,6 +100,8 @@ class ControllerEncuestas{
                 }
             }
         }
+
+        array_push($data, $post["cronometro"]);
 
         fputcsv($file, $data, ";");
 

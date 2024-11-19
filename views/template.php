@@ -60,7 +60,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
     }
     ?>
     <!-- CSS only -->
-    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.5">
+    <link rel="stylesheet" href="<?php echo $url ?>views/css/styles.css?v=3.6">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $url ?>views/css/plugins/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -128,7 +128,7 @@ $encuestas = ControllerEncuestas::ctrMostrarEncuestas();
 
 	?>
 <input type="hidden" id="url" value="<?php echo $url ?>">
-<script src="<?php echo $url ?>views/js/encuestas.js?v=3.6"></script>
+<script src="<?php echo $url ?>views/js/encuestas.js?v=3.7"></script>
 <script src="<?php echo $url ?>views/js/consentimiento.js?v=2.1"></script>
 <script src="<?php echo $url ?>views/js/email.js?v=2.1"></script>
 

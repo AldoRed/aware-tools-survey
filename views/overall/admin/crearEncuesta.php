@@ -103,6 +103,15 @@
             </br></br></br></br></br>
         </div>
 
+        <!-- Cronometro en la encuesta Si/No -->
+        <div class="form-group">
+            <label for="cronometro">Cronómetro</label>
+            <select id="cronometro" class="form-control" name="cronometro">
+                <option value="1">Sí</option>
+                <option value="0" selected>No</option>
+            </select>
+        </div>
+
         <!-- Correo del creador de la encuesta -->
         <div class="form-group">
             <label for="correoCreador">Correo del creador de la encuesta</label>

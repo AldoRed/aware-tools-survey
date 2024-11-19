@@ -90,6 +90,30 @@ input{
     z-index:-1;
 }
 
+#cronometro-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#cronometro {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#cronometro-icon {
+    font-size: 20px;
+}
+
 .input-error{
     border: 1px solid red;
 }

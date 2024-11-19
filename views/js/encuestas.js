@@ -26,6 +26,23 @@ function margenError(a,b){
     return Math.abs((a[0]-parseInt(b[0]))) + Math.abs((a[1]-parseInt(b[1]))) + Math.abs((a[2]-parseInt(b[2])));
 }
 
+function activarCronometro(){
+    $("#cronometro-container").show();
+    let seconds = 0;
+
+    function formatTime(totalSeconds) {
+        let minutes = Math.floor(totalSeconds / 60);
+        let secs = totalSeconds % 60;
+        
+        return (minutes < 10 ? "0" + minutes : minutes) + ":" + (secs < 10 ? "0" + secs : secs);
+    }
+
+    setInterval(function () {
+        seconds++;
+        $("#cronometro").text(formatTime(seconds));
+    }, 1000);
+}
+
 // Encuesta
 $(".contestar_enc").click(function(){
     $("#main").slideUp();
@@ -33,6 +50,12 @@ $(".contestar_enc").click(function(){
     $(".seccion_0").slideDown();
     // Scroll to top
     window.scrollTo(0, 0);
+
+    // Activar cronometro
+    const cronometro = $("input[name='cronometro']").val();
+    if(cronometro == 1){
+        activarCronometro();
+    }
 });
 
 $(".siguiente").click(function(){
@@ -86,6 +109,17 @@ $(".submitEncuesta").click(function(){
     inputs = $(".seccion_0").parent().find("input");
 
     removeRequired(inputs);
+
+    // Get cronometro time in seconds if it's active and add it to the form
+    let cronometro = '';
+    if($("#cronometro-container").is(":visible")){
+        cronometro = $("#cronometro").text();
+        // pasar a segundos
+        let time = cronometro.split(":");
+        cronometro = parseInt(time[0])*60 + parseInt(time[1]);
+
+        $("input[name='cronometro']").val(cronometro);
+    }
 
     // Submit the form
     $(this).attr("type", "submit");
