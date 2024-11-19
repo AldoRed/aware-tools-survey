@@ -153,7 +153,7 @@ if(!$encuesta){
     </div>
 </section>
 
-<script src="<?php echo $url ?>views/js/editarEncuesta.js?v=1.0"></script>
+<script src="<?php echo $url ?>views/js/editarEncuesta.js?v=2.0"></script>
 
 <style>
 table {
