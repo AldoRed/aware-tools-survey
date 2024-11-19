@@ -94,7 +94,7 @@ class ModelEncuestas{
 
     static public function mdlCrearEncuestaAprobada($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, slug, descripcion, imagen, secciones, administradores) VALUES (:nombre, :slug, :descripcion, :imagen, :secciones, :administradores)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, slug, descripcion, imagen, secciones, administradores, cronometro) VALUES (:nombre, :slug, :descripcion, :imagen, :secciones, :administradores, :cronometro)");
 
         $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt -> bindParam(":slug", $datos["slug"], PDO::PARAM_STR);
@@ -102,6 +102,7 @@ class ModelEncuestas{
         $stmt -> bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
         $stmt -> bindParam(":secciones", $datos["secciones"], PDO::PARAM_STR);
         $stmt -> bindParam(":administradores", $datos["administradores"], PDO::PARAM_STR);
+        $stmt -> bindParam(":cronometro", $datos["cronometro"], PDO::PARAM_INT);
 
         if($stmt -> execute()){
 
