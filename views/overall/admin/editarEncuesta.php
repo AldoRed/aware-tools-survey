@@ -147,8 +147,6 @@ if(!$encuesta){
         <div class="form-group">
             <label for="correoCreador">Administradores Encuesta</label>
             <input type="email" class="form-control" name="correoCreador" placeholder="Tu correo con el que administrarás la encuesta" value="<?php echo implode(", ", json_decode($encuesta["administradores"], true)) ?>" readonly>
-
-            <input type="hidden" name="idEncuesta" value="<?php echo $encuesta["id"] ?>">
         </div>
 
         <button id="enviarEditarEncuesta" class="btn col-xs-12">Enviar</button>

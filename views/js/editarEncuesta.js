@@ -128,3 +128,109 @@ $(document).on("keyup", ".nombrePregunta", function() {
         $(this).closest("tr").remove();
     }
 });
+
+$("#enviarEditarEncuesta").click(function() {
+    const nombreEncuesta = $("input[name='nombreEncuesta']").val();
+    const slugEncuesta = $("input[name='slugEncuesta']").val();
+    const descripcionEncuesta = $("textarea[name='descripcionEncuesta']").val();
+    const url = $("#url").val();
+    const cronometro = $("#cronometro").val();
+
+    if (nombreEncuesta == "" || slugEncuesta == "" || descripcionEncuesta == "") {
+        alert("Todos los campos son obligatorios");
+        return;
+    }
+
+    const secciones = [];
+    $("#secciones tr").each(function() {
+        const seccion = {
+            nombre: $(this).find("td:eq(0) input").val(),
+            preguntas: []
+        };
+
+        $(this).find("tbody tr").each(function() {
+            const pregunta = {
+                nombre: $(this).find("td:eq(0) input").val(),
+                tipo: $(this).find("td:eq(1) select").val(),
+                alternativas: [],
+                obligatoria: $(this).find("td:eq(3) input").is(":checked")
+            };
+
+            if (pregunta.nombre == "" || pregunta.tipo == "") {
+                return;
+            }
+
+            if (pregunta.tipo == "radio" || pregunta.tipo == "radioMultiple") {
+                $(this).find("td:eq(2) input").each(function() {
+                    const alternativa = $(this).val();
+                    if (alternativa != "") {
+                        pregunta.alternativas.push(alternativa);
+                    }
+                });
+            }
+
+            seccion.preguntas.push(pregunta);
+        });
+
+        if (seccion.nombre != "" && seccion.preguntas.length > 0) {
+            secciones.push(seccion);
+        }
+    });
+
+    if (secciones.length == 0) {
+        alert("Debe agregar al menos una sección con preguntas");
+        return;
+    }
+
+    let data = new FormData();
+    data.append("metodo", "editarEncuesta");
+    data.append("nombreEncuesta", nombreEncuesta);
+    data.append("slugEncuesta", slugEncuesta);
+    data.append("descripcionEncuesta", descripcionEncuesta);
+    data.append("imagenEncuesta", imagenEncuesta);
+    data.append("cronometro", cronometro);
+    data.append("secciones", JSON.stringify(secciones));
+
+
+    $.ajax({
+        url: url + "ajax/crearEncuesta.ajax.php",
+        type: "POST",
+        data: data,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+            $("#enviarCrearEncuesta").hide();
+            Swal.fire({
+                title: 'Subiendo encuesta...',
+                text: 'Por favor, espera mientras subimos la encuesta.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        },
+        success: function(response) {
+            $("#enviarEditarEncuesta").show();
+            if (response == "ok") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Encuesta editada',
+                    text: 'La encuesta se ha editado correctamente. Deberá ser aprobada por un administrador.',
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+
+                setTimeout(function() {
+                    window.location.href = url + "admin";
+                }, 2000);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ha ocurrido un error al crear la encuesta.'
+                });
+            }
+        }
+    });
+
+});

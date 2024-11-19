@@ -199,6 +199,46 @@ class ModelEncuestas{
         $stmt = null;
     }
 
+    static public function mdlEditarEncuestaPreguntas($tabla, $datos){
+
+        if($datos["imagen"] != null){
+
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, descripcion = :descripcion, imagen = :imagen, secciones = :secciones, cronometro = :cronometro WHERE slug = :slug");
+
+            $stmt -> bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+            $stmt -> bindParam(":slug", $datos["slug"], PDO::PARAM_STR);
+            $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+            $stmt -> bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+            $stmt -> bindParam(":secciones", $datos["secciones"], PDO::PARAM_STR);
+            $stmt -> bindParam(":cronometro", $datos["cronometro"], PDO::PARAM_INT);
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, descripcion = :descripcion, secciones = :secciones, cronometro = :cronometro WHERE slug = :slug");
+
+            $stmt -> bindParam(":slug", $datos["slug"], PDO::PARAM_STR);
+            $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+            $stmt -> bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+            $stmt -> bindParam(":secciones", $datos["secciones"], PDO::PARAM_STR);
+            $stmt -> bindParam(":cronometro", $datos["cronometro"], PDO::PARAM_INT);
+
+        }
+
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+                
+            return "error";
+
+        }
+
+        $stmt -> close();
+
+        $stmt = null;
+    }
+
     static public function mdlEditarEncuesta($tabla, $id, $item, $valor){
 
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item = :$item WHERE id = :id");
