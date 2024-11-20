@@ -178,7 +178,7 @@ function checkInput(inputs){
                             otraEspecificaSelected = true;
                         }
                     }
-                } else if(input.attr("type") == "text" && input.val() != ""){
+                } else if((input.attr("type") == "text" || input.is("textarea")) && input.val() != ""){
                     isValid = true;
                 }
             }else if(input.val() == "Otro (especificar)" && input.prop("checked")){

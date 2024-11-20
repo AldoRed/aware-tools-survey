@@ -61,6 +61,7 @@
                                                 <option value="radio">Selección única</option>
                                                 <option value="radioMultiple" selected>Selección múltiple</option>
                                                 <option value="text">Texto</option>
+                                                <option value="textArea">Texto largo</option>
                                             </select>
                                         </td>
                                         <td>
@@ -122,7 +123,7 @@
     </div>
 </secion>
 
-<script src="<?php echo $url ?>views/js/crearEncuesta.js?v=3.1"></script>
+<script src="<?php echo $url ?>views/js/crearEncuesta.js?v=3.2"></script>
 
 <style>
 table {
