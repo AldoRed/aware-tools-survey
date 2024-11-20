@@ -36,6 +36,7 @@ $solicitudes = ControllerEncuestas::ctrMostrarSolicitudesEnviarEncuesta($token);
 if(!$solicitudes){
     echo "event: error\n";
     echo "data: Token not valid}\n\n";
+    ob_flush();
     flush();
     exit;
 }
@@ -79,6 +80,7 @@ foreach ($emails as $key => $value) {
     $sent++;
     echo "event: progress\n";
     echo "data: {\"sent\": $sent, \"total\": $total}\n\n";
+    ob_flush();
     flush();
 
     // Sleep for 1 second
@@ -93,4 +95,5 @@ foreach($encuestas as $key => $value){
 
 echo "event: complete\n";
 echo "data: ok\n\n";
+ob_flush();
 flush();
