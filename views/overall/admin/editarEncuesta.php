@@ -86,6 +86,7 @@ if(!$encuesta){
                                                     <option value="radio" '.($value2["tipo"] == "radio" ? "selected" : "").'>Selección única</option>
                                                     <option value="radioMultiple" '.($value2["tipo"] == "radioMultiple" ? "selected" : "").'>Selección múltiple</option>
                                                     <option value="text" '.($value2["tipo"] == "text" ? "selected" : "").'>Texto</option>
+                                                    <option value="textArea" '.($value2["tipo"] == "textArea" ? "selected" : "").'>Texto largo</option>
                                                 </select>
                                             </td>
                                             <td>';
@@ -153,7 +154,7 @@ if(!$encuesta){
     </div>
 </section>
 
-<script src="<?php echo $url ?>views/js/editarEncuesta.js?v=2.0"></script>
+<script src="<?php echo $url ?>views/js/editarEncuesta.js?v=2.1"></script>
 
 <style>
 table {
