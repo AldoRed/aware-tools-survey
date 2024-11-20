@@ -3,6 +3,16 @@ $(".publicarEncuesta").click(function(){
     const token = $(this).attr("token");
     const url = $("#url").val();
 
+    Swal.fire({
+        title: 'Publicando encuesta',
+        html: 'Espere por favor',
+        icon: 'info',
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
     const source = new EventSource(url + "ajax/publicarEncuesta.ajax.php?token=" + token);
 
     source.addEventListener("open", function () {
