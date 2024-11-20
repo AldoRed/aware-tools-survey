@@ -243,6 +243,10 @@ foreach($formulario as $keySeccion => $seccion){
         }elseif($pregunta["tipo"] == "text"){
 
             echo '<input type="text" name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" placeholder="Escribir respuesta aquí" '.$required.'>';
+        }elseif($pregunta["tipo"] == "textArea"){
+
+            echo '<textarea name="pregunta-'.$keySeccion.'-'.$keyPregunta.'" placeholder="Escribir respuesta aquí" '.$required.'></textarea>';
+
         }else{
             echo "Tipo de pregunta no soportada";
         }
